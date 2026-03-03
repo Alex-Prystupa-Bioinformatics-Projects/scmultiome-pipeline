@@ -90,7 +90,8 @@ seu_obj_list <- lapply(seu_obj_list, function(seu_obj) {
         seu_obj,
         grouping.var  = grouping_var,
         my.macs2.path = argv$macs_path,
-        my.annotation = genome$annotation
+        my.annotation = genome$annotation,
+        my.blacklist  = genome$blacklist
     )
 
     message("  Done: ", seu_obj@project.name, " | Peaks: ", nrow(seu_obj[["peaks"]]))

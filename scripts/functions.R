@@ -45,22 +45,18 @@ CreateMultiomeSeurat <- function(data.dir, my.annotation = annotation, frag.path
     return(seu)
 }
 
-# call peaks uisng macs2
-CallMyPeaks <- function(seu, fragpath=NULL,grouping.var=NULL,my.macs2.path=NULL,my.annotation=NULL){
-    #require(EnsDb.Hsapiens.v86)
-    require(EnsDb.Mmusculus.v79)
+# Call peaks using MACS2 and create a new "peaks" assay on the Seurat object.
+# my.blacklist is required — pass genome$blacklist from genome_utils.R
+CallMyPeaks <- function(seu, fragpath=NULL, grouping.var=NULL, my.macs2.path=NULL,
+                        my.annotation=NULL, my.blacklist){
     require(Seurat)
     require(Signac)
 
     atac.assay <- ifelse("ATAC" %in% names(seu@assays), "ATAC", "peaks")
     DefaultAssay(seu) <- atac.assay
-    # if(is.null(fragpath)){
-    #   fragments <- Fragments(seu)
-    #   fragpath <- fragments[[1]]@path
-    # }
-    # call peaks using MACS2
-    #seqlevelsStyle(blacklist_hg38_unified) <- "NCBI"
-    seqlevelsStyle(blacklist_mm10) <- "NCBI" # mouse
+
+    # Set blacklist seqlevels style to match peak calls (NCBI format)
+    seqlevelsStyle(my.blacklist) <- "NCBI"
 
     # New Code Below, was failing when grouping.var was NA
     if (!is.null(grouping.var)) {
@@ -87,10 +83,9 @@ CallMyPeaks <- function(seu, fragpath=NULL,grouping.var=NULL,my.macs2.path=NULL,
       peaks <- GenomicRanges::reduce(c(peaks, old.peaks))
     }
 
-    # remove peaks on nonstandard chromosomes and in genomic blacklist regions
+    # Remove peaks on nonstandard chromosomes and in species-specific blacklist regions
     peaks <- keepStandardChromosomes(peaks, pruning.mode = "coarse")
-    #peaks <- subsetByOverlaps(x = peaks, ranges = blacklist_hg38_unified, invert = TRUE)
-    peaks <- subsetByOverlaps(x = peaks, ranges = blacklist_mm10, invert = TRUE) # mouse
+    peaks <- subsetByOverlaps(x = peaks, ranges = my.blacklist, invert = TRUE)
 
     # quantify counts in each peak
     macs2_counts <- FeatureMatrix(
