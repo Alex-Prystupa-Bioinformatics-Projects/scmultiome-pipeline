@@ -59,10 +59,22 @@ submit_job() {
     fi
 }
 
-# Set up directory structure for a new project
+# Set up directory structure and restore R environment for a new project
 init() {
     echo "Initializing project directory structure"
     bash routes/setup_dirs.sh
+
+    # Restore renv library on the login node (has internet access).
+    # renv::install('renv') ensures renv itself is in the project library so
+    # compute nodes don't need to bootstrap it from the internet.
+    # The login node's OS platform prefix is saved to .renv_platform so that
+    # 01_preprocess.sh can point compute nodes to the correct library path
+    # (login and compute nodes may run different OS minor versions on Minerva).
+    echo "Restoring R environment via renv (this may take a few minutes)..."
+    module load R/4.4.1
+    Rscript -e "renv::install('renv'); renv::restore()" && \
+        Rscript --no-init-file -e "cat(renv:::renv_platform_prefix())" > .renv_platform
+    echo "R environment restored."
 }
 
 # Phase 1: full preprocessing pipeline (steps 1-4)

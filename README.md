@@ -33,17 +33,12 @@ git clone https://github.com/Alex-Prystupa-Bioinformatics-Projects/scmultiome-pi
 cd scmultiome-pipeline
 ```
 
-**2. Initialize project directories**
+**2. Initialize project directories and restore R environment**
 ```bash
 run/runmultiome init
 ```
-
-**3. Restore the R environment** *(must be run on the login node — requires internet)*
-```bash
-module load R/4.4.1 && Rscript -e "renv::install('renv'); renv::restore()" && Rscript --no-init-file -e "cat(renv:::renv_platform_prefix())" > .renv_platform
-```
-This installs all required R packages into `renv/library/` from the locked versions in `renv.lock`.
-You only need to do this once per clone. The library lives on the shared filesystem and is accessible by compute nodes.
+This sets up directories and automatically restores the R environment via renv.
+Must be run on the login node (requires internet access). Takes a few minutes.
 
 **4. Configure your project**
 
