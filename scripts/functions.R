@@ -15,7 +15,7 @@ CombineDirectories <- function(data.dir, new.dir, sample){
 }
 
 # load in data and create assays for both Gene Expression and ATAC Peaks
-CreateMultiomeSeurat <- function(data.dir, my.annotation = annotation, frag.path=NULL, rename.rows=F){
+CreateMultiomeSeurat <- function(data.dir, my.annotation = annotation, frag.path=NULL){
     require(Seurat)
     require(Signac)
     mat.list <- Read10X(data.dir)
@@ -23,10 +23,6 @@ CreateMultiomeSeurat <- function(data.dir, my.annotation = annotation, frag.path
 
     if(is.null(frag.path)){
         frag.path <- paste0(data.dir, "/fragments.tsv.gz")
-    }
-
-    if(rename.rows){
-        rownames(mat.list[["Peaks"]]) <- paste0("chr", rownames(mat.list[["Peaks"]]))
     }
 
     # create ATAC assay and add it to the object
