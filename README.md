@@ -40,7 +40,7 @@ run/runmultiome init
 
 **3. Restore the R environment** *(must be run on the login node — requires internet)*
 ```bash
-module load R/4.4.1 && Rscript -e "renv::install('renv'); renv::restore()"
+module load R/4.4.1 && Rscript -e "renv::install('renv'); renv::restore()" && Rscript --no-init-file -e "cat(renv:::renv_platform_prefix())" > .renv_platform
 ```
 This installs all required R packages into `renv/library/` from the locked versions in `renv.lock`.
 You only need to do this once per clone. The library lives on the shared filesystem and is accessible by compute nodes.

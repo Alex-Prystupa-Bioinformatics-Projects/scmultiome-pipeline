@@ -14,10 +14,11 @@ CLAUDE.md
 .RData
 .Rproj.user/
 
-# renv — library is machine-specific, lockfile is committed
+# renv — library and platform file are machine-specific, lockfile is committed
 renv/library/
 renv/staging/
 renv/sandbox/
+.renv_platform
 
 # Output data (too large for git)
 output/RDS-files/
