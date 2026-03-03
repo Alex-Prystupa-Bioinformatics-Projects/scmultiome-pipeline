@@ -30,6 +30,10 @@ echo "SampleID,path" > configs/samplesheet.csv
 echo "Edit configs/pipeline_config.yml to set your species and genome before running."
 
 echo "Project directory structure initialized."
+echo ""
+echo "Before running the pipeline, restore the R environment:"
+echo "  module load R/4.4.1 && Rscript -e \"renv::restore()\""
+echo ""
 echo "Next steps:"
 echo "  1. Fill in configs/samplesheet.csv with your samples"
 echo "  2. Edit configs/pipeline_config.yml with your species/genome settings"

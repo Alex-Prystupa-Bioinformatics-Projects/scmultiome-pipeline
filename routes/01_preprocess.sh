@@ -19,10 +19,10 @@ set -e
 
 # 1. Load appropriate R module based on scheduler
 if [ "$SCHEDULER" == "slurm" ]; then
-    module load R/4.2.0
+    module load R/4.4.1
     module load macs2
 elif [ "$SCHEDULER" == "lsf" ]; then
-    module load R/4.2.0
+    module load R/4.4.1
 else
     echo "No scheduler set, assuming modules already loaded."
 fi
