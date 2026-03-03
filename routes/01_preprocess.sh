@@ -45,13 +45,17 @@ fi
 #    prefix and set RENV_PATHS_LIBRARY to the exact path where the library was
 #    built — so the compute node always finds the correct library regardless of
 #    its own OS minor version.
-export RENV_PATHS_LIBRARY="$(pwd)/renv/library/$(cat .renv_platform)"
-
-# DEBUG — remove after confirming renv path is correct on compute node
-echo "DEBUG pwd: $(pwd)"
-echo "DEBUG .renv_platform contents: $(cat .renv_platform 2>/dev/null || echo 'FILE NOT FOUND')"
-echo "DEBUG RENV_PATHS_LIBRARY: $RENV_PATHS_LIBRARY"
-echo "DEBUG renv at that path: $(ls $RENV_PATHS_LIBRARY/renv 2>/dev/null && echo YES || echo NO)"
+#    RENV_PATHS_LIBRARY — the root of the renv library (before platform suffix).
+#    RENV_PATHS_PREFIX  — overrides the OS prefix that renv auto-detects at
+#                         runtime. Without this, renv detects the compute node's
+#                         OS (e.g. rocky-9.6) and appends it to the library root,
+#                         but the library was built on the login node (rocky-9.7)
+#                         so the path doesn't exist. By setting RENV_PATHS_PREFIX
+#                         to the login node's OS prefix (saved in .renv_platform
+#                         during setup), renv builds the correct full path:
+#                         renv/library/{login-OS}/R-4.4/x86_64-pc-linux-gnu
+export RENV_PATHS_LIBRARY="$(pwd)/renv/library"
+export RENV_PATHS_PREFIX="$(cut -d'/' -f1 .renv_platform)"
 
 # 3. Step 1: Initialize raw data directories from samplesheet
 echo "[Step 1/4] Initializing raw data directories..."
