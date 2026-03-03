@@ -1,0 +1,48 @@
+Sender: LSF System <lsfadmin@lc06e22>
+Subject: Job 226147924: <routes/merged_pipeline.sh> in cluster <chimera> Done
+
+Job <routes/merged_pipeline.sh> was submitted from host <li04e01> by user <prysta01> in cluster <chimera> at Wed Jan 21 11:35:35 2026
+Job was executed on host(s) <12*lc06e22>, in queue <premium>, as user <prysta01> in cluster <chimera> at Wed Jan 21 11:35:40 2026
+</hpc/users/prysta01> was used as the home directory.
+</sc/arion/projects/naiklab/Alex/Jack-Multiome/2026-01-07-Analysis/scmultiome-pipeline> was used as the working directory.
+Started at Wed Jan 21 11:35:40 2026
+Terminated at Wed Jan 21 12:02:25 2026
+Results reported at Wed Jan 21 12:02:25 2026
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+routes/merged_pipeline.sh
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   5024.63 sec.
+    Max Memory :                                 49283 MB
+    Average Memory :                             26911.35 MB
+    Total Requested Memory :                     288000.00 MB
+    Delta Memory :                               238717.00 MB
+    Max Swap :                                   -
+    Max Processes :                              18
+    Max Threads :                                20
+    Run time :                                   1605 sec.
+    Turnaround time :                            1610 sec.
+
+The output (if any) follows:
+
+Running merged pipeline
+multicore:
+- args: function (..., workers = 12, envir = parent.frame())
+- tweaked: TRUE
+- call: plan("multicore", workers = as.numeric(future::availableCores()))
+FutureBackend to be launched
+[1] "logical"
+
+
+PS:
+
+Read file <scripts/outs/merged-pipeline-226147924.err> for stderr output of this job.
+

@@ -1,0 +1,91 @@
+#!/bin/bash
+# =============================================================================
+# runmultiome  |  Pipeline Entry Point
+# =============================================================================
+# Central script for submitting pipeline jobs to the HPC scheduler.
+# Auto-detects SLURM or LSF and submits accordingly.
+#
+# Usage:
+#   bash run/runmultiome <function_name>
+#
+# Available functions:
+#   init          — set up directory structure for a new project
+#   preprocess    — run steps 1-4 (init → create → callpeaks → qc)
+#
+# Example:
+#   bash run/runmultiome preprocess
+# =============================================================================
+
+# Environment variables — set these before running
+export project_prefix=jm-multiome
+export my_macs_path=/sc/arion/projects/naiklab/daccache/.hidden-libraries/miniconda3/envs/joe-macs3/bin/macs3
+export personal_anaconda_path=/sc/arion/projects/naiklab/daccache/.hidden-libraries/miniconda3/etc/profile.d/conda.sh
+export conda_env_name=sc-multiome-pipeline-env
+export sceasy_env_name=sceasy-joe
+export scenicplus_env_name=scenicplus-joe
+export create_cistarget_databases_path=/sc/arion/projects/naiklab/daccache/.hidden-libraries/miniconda3/envs/scenicplus-joe/create_cisTarget_databases
+
+# Detect scheduler based on environment variables
+detect_scheduler() {
+    if [ ! -z "$SLURM_JOB_ID" ]; then
+        echo "SLURM detected"
+        export SCHEDULER="slurm"
+    elif [ ! -z "$LSF_ENVDIR" ]; then
+        echo "LSF detected"
+        export SCHEDULER="lsf"
+    else
+        echo "No known job scheduler detected"
+        export SCHEDULER="none"
+    fi
+}
+
+# Submit a job to the detected scheduler
+# Usage: submit_job <script> <out> <err> <time> <mem> <cores>
+submit_job() {
+    local script=$1
+    local output=$2
+    local error=$3
+    local time=$4
+    local mem=$5
+    local cores=$6
+
+    if [ "$SCHEDULER" == "slurm" ]; then
+        time=0-$time:00
+        sbatch -c $cores -p a100_short --mem-per-cpu $mem -o $output -e $error -t $time --export=ALL $script
+    elif [ "$SCHEDULER" == "lsf" ]; then
+        bsub -P acc_naiklab -q premium -n $cores -R "rusage[mem=$mem]" -R span[hosts=1] -o $output -e $error -W $time $script
+    else
+        echo "No job scheduler available to submit job: $script"
+    fi
+}
+
+# Set up directory structure for a new project
+init() {
+    echo "Initializing project directory structure"
+    bash routes/setup_dirs.sh
+}
+
+# Phase 1: full preprocessing pipeline (steps 1-4)
+# Runs: init → create → callpeaks → qc
+# Time: 8hrs | Mem: 24GB/core | Cores: 12
+preprocess() {
+    echo "Submitting preprocessing pipeline (steps 1-4)"
+    submit_job routes/01_preprocess.sh \
+        scripts/outs/preprocessing-%J.out \
+        scripts/outs/preprocessing-%J.err \
+        8:00 24000 12
+}
+
+# Dispatcher — calls the named function passed as argument
+run_multiome() {
+    if [ $# -eq 0 ]; then
+        echo "Please provide a function name to run."
+        echo "Available: init, preprocess"
+        exit 1
+    fi
+    "$1"
+}
+
+# Detect scheduler then dispatch
+detect_scheduler
+run_multiome "$1"

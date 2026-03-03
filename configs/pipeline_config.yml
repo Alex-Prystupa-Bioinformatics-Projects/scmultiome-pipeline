@@ -1,0 +1,25 @@
+# Pipeline Configuration
+# Set species-specific genome settings here.
+# This file is read by all pipeline step scripts.
+
+# Species: "mouse" or "human"
+species: mouse
+
+# Genome build
+genome: mm10
+
+# EnsDb package name (must be installed in R)
+ensdb: EnsDb.Mmusculus.v79
+
+# Blacklist region set (from Signac)
+# mouse: blacklist_mm10
+# human: blacklist_hg38_unified
+blacklist: blacklist_mm10
+
+# -----------------------------------------------
+# Human settings (comment out mouse, uncomment below):
+# species: human
+# genome: hg38
+# ensdb: EnsDb.Hsapiens.v86
+# blacklist: blacklist_hg38_unified
+# -----------------------------------------------

@@ -1,0 +1,178 @@
+
+Attaching package: ‘BiocGenerics’
+
+The following objects are masked from ‘package:stats’:
+
+    IQR, mad, sd, var, xtabs
+
+The following objects are masked from ‘package:base’:
+
+    anyDuplicated, aperm, append, as.data.frame, basename, cbind,
+    colnames, dirname, do.call, duplicated, eval, evalq, Filter, Find,
+    get, grep, grepl, intersect, is.unsorted, lapply, Map, mapply,
+    match, mget, order, paste, pmax, pmax.int, pmin, pmin.int,
+    Position, rank, rbind, Reduce, rownames, sapply, setdiff, sort,
+    table, tapply, union, unique, unsplit, which.max, which.min
+
+
+Attaching package: ‘S4Vectors’
+
+The following objects are masked from ‘package:base’:
+
+    expand.grid, I, unname
+
+Welcome to Bioconductor
+
+    Vignettes contain introductory material; view with
+    'browseVignettes()'. To cite Bioconductor, see
+    'citation("Biobase")', and for packages 'citation("pkgname")'.
+
+
+Attaching package: ‘AnnotationFilter’
+
+The following object is masked from ‘package:future’:
+
+    value
+
+
+Attaching package: 'ensembldb'
+
+The following object is masked from 'package:stats':
+
+    filter
+
+
+Attaching package: 'Biostrings'
+
+The following object is masked from 'package:base':
+
+    strsplit
+
+
+Attaching package: 'sp'
+
+The following object is masked from 'package:IRanges':
+
+    %over%
+
+
+Attaching package: 'SeuratObject'
+
+The following object is masked from 'package:Biostrings':
+
+    intersect
+
+The following object is masked from 'package:GenomicRanges':
+
+    intersect
+
+The following object is masked from 'package:GenomeInfoDb':
+
+    intersect
+
+The following object is masked from 'package:IRanges':
+
+    intersect
+
+The following object is masked from 'package:S4Vectors':
+
+    intersect
+
+The following object is masked from 'package:BiocGenerics':
+
+    intersect
+
+The following objects are masked from 'package:base':
+
+    intersect, t
+
+
+Attaching package: 'dplyr'
+
+The following objects are masked from 'package:Biostrings':
+
+    collapse, intersect, setdiff, setequal, union
+
+The following object is masked from 'package:XVector':
+
+    slice
+
+The following objects are masked from 'package:ensembldb':
+
+    filter, select
+
+The following object is masked from 'package:AnnotationDbi':
+
+    select
+
+The following object is masked from 'package:Biobase':
+
+    combine
+
+The following objects are masked from 'package:GenomicRanges':
+
+    intersect, setdiff, union
+
+The following object is masked from 'package:GenomeInfoDb':
+
+    intersect
+
+The following objects are masked from 'package:IRanges':
+
+    collapse, desc, intersect, setdiff, slice, union
+
+The following objects are masked from 'package:S4Vectors':
+
+    first, intersect, rename, setdiff, setequal, union
+
+The following objects are masked from 'package:BiocGenerics':
+
+    combine, intersect, setdiff, union
+
+The following objects are masked from 'package:stats':
+
+    filter, lag
+
+The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union
+
+There were 21 warnings (use warnings() to see them)
+Loading in: output/RDS-files/jm-multiome-seu-obj-list-Annotation-Broad.RDS
+Normalizing layer: counts
+Performing log-normalization
+0%   10   20   30   40   50   60   70   80   90   100%
+[----|----|----|----|----|----|----|----|----|----|
+**************************************************|
+Testing 17048 genes and 208511 peaks
+Found gene coordinates for 14542 genes
+Normalizing layer: counts
+Performing log-normalization
+0%   10   20   30   40   50   60   70   80   90   100%
+[----|----|----|----|----|----|----|----|----|----|
+**************************************************|
+Testing 17673 genes and 241540 peaks
+Found gene coordinates for 14983 genes
+Normalizing layer: counts
+Performing log-normalization
+0%   10   20   30   40   50   60   70   80   90   100%
+[----|----|----|----|----|----|----|----|----|----|
+**************************************************|
+Testing 16537 genes and 194820 peaks
+Found gene coordinates for 14131 genes
+Normalizing layer: counts
+Performing log-normalization
+0%   10   20   30   40   50   60   70   80   90   100%
+[----|----|----|----|----|----|----|----|----|----|
+**************************************************|
+Testing 12913 genes and 63336 peaks
+Found gene coordinates for 11714 genes
+Normalizing layer: counts
+Performing log-normalization
+0%   10   20   30   40   50   60   70   80   90   100%
+[----|----|----|----|----|----|----|----|----|----|
+**************************************************|
+Testing 9109 genes and 30604 peaks
+Found gene coordinates for 8565 genes
+
+Execution halted

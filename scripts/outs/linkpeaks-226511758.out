@@ -1,0 +1,48 @@
+Sender: LSF System <lsfadmin@lh06c24>
+Subject: Job 226511758: <routes/linkpeaks.sh> in cluster <chimera> Exited
+
+Job <routes/linkpeaks.sh> was submitted from host <li04e02> by user <prysta01> in cluster <chimera> at Wed Jan 28 13:55:52 2026
+Job was executed on host(s) <6*lh06c24>, in queue <premium>, as user <prysta01> in cluster <chimera> at Wed Jan 28 13:55:57 2026
+</hpc/users/prysta01> was used as the home directory.
+</sc/arion/projects/naiklab/Alex/Jack-Multiome/2026-01-07-Analysis/scmultiome-pipeline> was used as the working directory.
+Started at Wed Jan 28 13:55:57 2026
+Terminated at Thu Jan 29 08:54:46 2026
+Results reported at Thu Jan 29 08:54:46 2026
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+routes/linkpeaks.sh
+------------------------------------------------------------
+
+TERM_OWNER: job killed by owner.
+Exited with exit code 1.
+
+Resource usage summary:
+
+    CPU time :                                   68039.28 sec.
+    Max Memory :                                 16148 MB
+    Average Memory :                             14236.27 MB
+    Total Requested Memory :                     72000.00 MB
+    Delta Memory :                               55852.00 MB
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                11
+    Run time :                                   68329 sec.
+    Turnaround time :                            68334 sec.
+
+The output (if any) follows:
+
+multicore:
+- args: function (..., workers = 6, envir = parent.frame())
+- tweaked: TRUE
+- call: plan("multicore", workers = as.numeric(future::availableCores()))
+FutureBackend to be launched
+[1] "logical"
+
+
+PS:
+
+Read file <scripts/outs/linkpeaks-226511758.err> for stderr output of this job.
+
