@@ -1,0 +1,19 @@
+# HPC job logs
+scripts/outs/
+
+# Mac system files
+.DS_Store
+**/.DS_Store
+
+# Claude local settings
+.claude/
+
+# R session files
+.Rhistory
+.RData
+.Rproj.user/
+
+# Output data (too large for git)
+output/RDS-files/
+data/raw/
+data/scenicplus/

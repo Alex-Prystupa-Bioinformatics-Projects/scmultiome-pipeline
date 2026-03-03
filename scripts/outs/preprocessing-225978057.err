@@ -1,1448 +1,0 @@
-
-Attaching package: ‘BiocGenerics’
-
-The following objects are masked from ‘package:stats’:
-
-    IQR, mad, sd, var, xtabs
-
-The following objects are masked from ‘package:base’:
-
-    anyDuplicated, aperm, append, as.data.frame, basename, cbind,
-    colnames, dirname, do.call, duplicated, eval, evalq, Filter, Find,
-    get, grep, grepl, intersect, is.unsorted, lapply, Map, mapply,
-    match, mget, order, paste, pmax, pmax.int, pmin, pmin.int,
-    Position, rank, rbind, Reduce, rownames, sapply, setdiff, sort,
-    table, tapply, union, unique, unsplit, which.max, which.min
-
-
-Attaching package: ‘S4Vectors’
-
-The following objects are masked from ‘package:base’:
-
-    expand.grid, I, unname
-
-Welcome to Bioconductor
-
-    Vignettes contain introductory material; view with
-    'browseVignettes()'. To cite Bioconductor, see
-    'citation("Biobase")', and for packages 'citation("pkgname")'.
-
-
-Attaching package: ‘AnnotationFilter’
-
-The following object is masked from ‘package:future’:
-
-    value
-
-
-Attaching package: 'ensembldb'
-
-The following object is masked from 'package:stats':
-
-    filter
-
-
-Attaching package: 'Biostrings'
-
-The following object is masked from 'package:base':
-
-    strsplit
-
-
-Attaching package: 'sp'
-
-The following object is masked from 'package:IRanges':
-
-    %over%
-
-
-Attaching package: 'SeuratObject'
-
-The following object is masked from 'package:Biostrings':
-
-    intersect
-
-The following object is masked from 'package:GenomicRanges':
-
-    intersect
-
-The following object is masked from 'package:GenomeInfoDb':
-
-    intersect
-
-The following object is masked from 'package:IRanges':
-
-    intersect
-
-The following object is masked from 'package:S4Vectors':
-
-    intersect
-
-The following object is masked from 'package:BiocGenerics':
-
-    intersect
-
-The following objects are masked from 'package:base':
-
-    intersect, t
-
-
-Attaching package: 'dplyr'
-
-The following objects are masked from 'package:Biostrings':
-
-    collapse, intersect, setdiff, setequal, union
-
-The following object is masked from 'package:XVector':
-
-    slice
-
-The following objects are masked from 'package:ensembldb':
-
-    filter, select
-
-The following object is masked from 'package:AnnotationDbi':
-
-    select
-
-The following object is masked from 'package:Biobase':
-
-    combine
-
-The following objects are masked from 'package:GenomicRanges':
-
-    intersect, setdiff, union
-
-The following object is masked from 'package:GenomeInfoDb':
-
-    intersect
-
-The following objects are masked from 'package:IRanges':
-
-    collapse, desc, intersect, setdiff, slice, union
-
-The following objects are masked from 'package:S4Vectors':
-
-    first, intersect, rename, setdiff, setequal, union
-
-The following objects are masked from 'package:BiocGenerics':
-
-    combine, intersect, setdiff, union
-
-The following objects are masked from 'package:stats':
-
-    filter, lag
-
-The following objects are masked from 'package:base':
-
-    intersect, setdiff, setequal, union
-
-There were 21 warnings (use warnings() to see them)
-Begining scMulitome processing
-Warning messages:
-1: In dir.create(new.dir) : 'data/raw/JM85-D6-CTRL' already exists
-2: In dir.create(new.dir) : 'data/raw/JM85-D6-IMQ' already exists
-3: In dir.create(new.dir) : 'data/raw/JM50-D6-IMQ' already exists
-4: In dir.create(new.dir) : 'data/raw/JM97-D2-CTRL' already exists
-5: In dir.create(new.dir) : 'data/raw/JM97-D2-IMQ' already exists
-6: In dir.create(new.dir) : 'data/raw/JM112-D30-CTRL-1' already exists
-7: In dir.create(new.dir) : 'data/raw/JM112-D30-CTRL-2' already exists
-8: In dir.create(new.dir) : 'data/raw/JM112-D30-IMQ-1' already exists
-9: In dir.create(new.dir) : 'data/raw/JM112-D30-IMQ-2' already exists
-10X data contains more than one type and is being returned as a list containing matrices of each type.
-Computing hash
-Checking for 4702 cell barcodes
-Found 4515 cell barcodes
-Done Processing 1 million linesDone Processing 2 million linesDone Processing 3 million linesDone Processing 4 million linesDone Processing 5 million linesDone Processing 6 million linesDone Processing 7 million linesDone Processing 8 million linesDone Processing 9 million lines                                                  Done Processing 10 million linesDone Processing 11 million linesDone Processing 12 million linesDone Processing 13 million linesDone Processing 14 million linesDone Processing 15 million linesDone Processing 16 million linesDone Processing 17 million linesDone Processing 18 million linesDone Processing 19 million lines                                                  Done Processing 20 million linesDone Processing 21 million linesDone Processing 22 million linesExtracting TSS positions
-Extracting fragments at TSSs
-
-Computing TSS enrichment score
-10X data contains more than one type and is being returned as a list containing matrices of each type.
-Computing hash
-Checking for 6880 cell barcodes
-Found 6528 cell barcodes
-Done Processing 1 million linesDone Processing 2 million linesDone Processing 3 million linesDone Processing 4 million linesDone Processing 5 million linesDone Processing 6 million linesDone Processing 7 million linesDone Processing 8 million linesDone Processing 9 million lines                                                  Done Processing 10 million linesDone Processing 11 million linesDone Processing 12 million linesDone Processing 13 million linesDone Processing 14 million linesDone Processing 15 million linesDone Processing 16 million linesDone Processing 17 million linesDone Processing 18 million linesDone Processing 19 million lines                                                  Done Processing 20 million linesDone Processing 21 million linesDone Processing 22 million linesDone Processing 23 million linesDone Processing 24 million linesDone Processing 25 million linesDone Processing 26 million linesDone Processing 27 million linesDone Processing 28 million linesDone Processing 29 million lines                                                  Done Processing 30 million linesDone Processing 31 million linesDone Processing 32 million linesExtracting TSS positions
-Extracting fragments at TSSs
-
-Computing TSS enrichment score
-10X data contains more than one type and is being returned as a list containing matrices of each type.
-Computing hash
-Checking for 1044 cell barcodes
-Found 963 cell barcodes
-Done Processing 1 million linesDone Processing 2 million linesDone Processing 3 million linesDone Processing 4 million linesExtracting TSS positions
-Extracting fragments at TSSs
-
-Computing TSS enrichment score
-10X data contains more than one type and is being returned as a list containing matrices of each type.
-Computing hash
-Checking for 2676 cell barcodes
-Found 2622 cell barcodes
-Done Processing 1 million linesDone Processing 2 million linesDone Processing 3 million linesDone Processing 4 million linesDone Processing 5 million linesDone Processing 6 million linesDone Processing 7 million linesDone Processing 8 million linesDone Processing 9 million lines                                                  Done Processing 10 million linesDone Processing 11 million linesDone Processing 12 million linesDone Processing 13 million linesExtracting TSS positions
-Extracting fragments at TSSs
-
-Computing TSS enrichment score
-10X data contains more than one type and is being returned as a list containing matrices of each type.
-Computing hash
-Checking for 5245 cell barcodes
-Found 4810 cell barcodes
-Done Processing 1 million linesDone Processing 2 million linesDone Processing 3 million linesDone Processing 4 million linesDone Processing 5 million linesDone Processing 6 million linesDone Processing 7 million linesDone Processing 8 million linesDone Processing 9 million lines                                                  Done Processing 10 million linesDone Processing 11 million linesDone Processing 12 million linesDone Processing 13 million linesDone Processing 14 million linesDone Processing 15 million linesDone Processing 16 million linesDone Processing 17 million linesDone Processing 18 million linesDone Processing 19 million lines                                                  Done Processing 20 million linesDone Processing 21 million linesDone Processing 22 million linesDone Processing 23 million linesDone Processing 24 million linesExtracting TSS positions
-Extracting fragments at TSSs
-
-Computing TSS enrichment score
-10X data contains more than one type and is being returned as a list containing matrices of each type.
-Computing hash
-Checking for 7475 cell barcodes
-Found 6869 cell barcodes
-Done Processing 1 million linesDone Processing 2 million linesDone Processing 3 million linesDone Processing 4 million linesDone Processing 5 million linesDone Processing 6 million linesDone Processing 7 million linesDone Processing 8 million linesDone Processing 9 million lines                                                  Done Processing 10 million linesDone Processing 11 million linesDone Processing 12 million linesDone Processing 13 million linesDone Processing 14 million linesDone Processing 15 million linesDone Processing 16 million linesDone Processing 17 million linesDone Processing 18 million linesDone Processing 19 million lines                                                  Done Processing 20 million linesDone Processing 21 million linesDone Processing 22 million linesDone Processing 23 million linesDone Processing 24 million linesDone Processing 25 million linesDone Processing 26 million linesDone Processing 27 million linesDone Processing 28 million linesDone Processing 29 million lines                                                  Done Processing 30 million linesDone Processing 31 million linesDone Processing 32 million linesDone Processing 33 million linesDone Processing 34 million linesExtracting TSS positions
-Extracting fragments at TSSs
-
-Computing TSS enrichment score
-10X data contains more than one type and is being returned as a list containing matrices of each type.
-Computing hash
-Checking for 7118 cell barcodes
-Found 6488 cell barcodes
-Done Processing 1 million linesDone Processing 2 million linesDone Processing 3 million linesDone Processing 4 million linesDone Processing 5 million linesDone Processing 6 million linesDone Processing 7 million linesDone Processing 8 million linesDone Processing 9 million lines                                                  Done Processing 10 million linesDone Processing 11 million linesDone Processing 12 million linesDone Processing 13 million linesDone Processing 14 million linesDone Processing 15 million linesDone Processing 16 million linesDone Processing 17 million linesDone Processing 18 million linesDone Processing 19 million lines                                                  Done Processing 20 million linesDone Processing 21 million linesDone Processing 22 million linesDone Processing 23 million linesDone Processing 24 million linesDone Processing 25 million linesDone Processing 26 million linesDone Processing 27 million linesDone Processing 28 million linesDone Processing 29 million lines                                                  Done Processing 30 million linesDone Processing 31 million linesDone Processing 32 million linesExtracting TSS positions
-Extracting fragments at TSSs
-
-Computing TSS enrichment score
-10X data contains more than one type and is being returned as a list containing matrices of each type.
-Computing hash
-Checking for 5338 cell barcodes
-Found 4968 cell barcodes
-Done Processing 1 million linesDone Processing 2 million linesDone Processing 3 million linesDone Processing 4 million linesDone Processing 5 million linesDone Processing 6 million linesDone Processing 7 million linesDone Processing 8 million linesDone Processing 9 million lines                                                  Done Processing 10 million linesDone Processing 11 million linesDone Processing 12 million linesDone Processing 13 million linesDone Processing 14 million linesDone Processing 15 million linesDone Processing 16 million linesDone Processing 17 million linesDone Processing 18 million linesDone Processing 19 million lines                                                  Done Processing 20 million linesDone Processing 21 million linesDone Processing 22 million linesDone Processing 23 million linesDone Processing 24 million linesExtracting TSS positions
-Extracting fragments at TSSs
-
-Computing TSS enrichment score
-10X data contains more than one type and is being returned as a list containing matrices of each type.
-Computing hash
-Checking for 4420 cell barcodes
-Found 4060 cell barcodes
-Done Processing 1 million linesDone Processing 2 million linesDone Processing 3 million linesDone Processing 4 million linesDone Processing 5 million linesDone Processing 6 million linesDone Processing 7 million linesDone Processing 8 million linesDone Processing 9 million lines                                                  Done Processing 10 million linesDone Processing 11 million linesDone Processing 12 million linesDone Processing 13 million linesDone Processing 14 million linesDone Processing 15 million linesDone Processing 16 million linesDone Processing 17 million linesDone Processing 18 million linesDone Processing 19 million lines                                                  Done Processing 20 million linesExtracting TSS positions
-Extracting fragments at TSSs
-
-Computing TSS enrichment score
-INFO  @ 14 Jan 2026 14:13:22: [6298 MB] 
-# Command line: callpeak -t /sc/arion/projects/naiklab/Alex/Jack-Multiome/2026-01-07-Analysis/scmultiome-pipeline/data/raw/JM85-D6-CTRL/fragments.tsv.gz -g 2.7e+09 -f BED --nomodel --extsize 200 --shift -100 -n JM85-D6-CTRL --outdir ./data/raw/macs-peaks
-# ARGUMENTS LIST:
-# name = JM85-D6-CTRL
-# format = BED
-# ChIP-seq file = ['/sc/arion/projects/naiklab/Alex/Jack-Multiome/2026-01-07-Analysis/scmultiome-pipeline/data/raw/JM85-D6-CTRL/fragments.tsv.gz']
-# control file = None
-# effective genome size = 2.70e+09
-# band width = 300
-# model fold = [5, 50]
-# qvalue cutoff = 5.00e-02
-# The maximum gap between significant sites is assigned as the read length/tag size.
-# The minimum length of peaks is assigned as the predicted fragment length "d".
-# Larger dataset will be scaled towards smaller dataset.
-# Range for calculating regional lambda is: 10000 bps
-# Broad region calling is off
-# Paired-End mode is off
- 
-INFO  @ 14 Jan 2026 14:13:22: [6298 MB] #1 read tag files... 
-INFO  @ 14 Jan 2026 14:13:22: [6298 MB] #1 read treatment tags... 
-INFO  @ 14 Jan 2026 14:13:23: [6298 MB]  1000000 reads parsed 
-INFO  @ 14 Jan 2026 14:13:24: [6298 MB]  2000000 reads parsed 
-INFO  @ 14 Jan 2026 14:13:25: [6298 MB]  3000000 reads parsed 
-INFO  @ 14 Jan 2026 14:13:26: [6298 MB]  4000000 reads parsed 
-INFO  @ 14 Jan 2026 14:13:27: [6298 MB]  5000000 reads parsed 
-INFO  @ 14 Jan 2026 14:13:28: [6298 MB]  6000000 reads parsed 
-INFO  @ 14 Jan 2026 14:13:28: [6298 MB]  7000000 reads parsed 
-INFO  @ 14 Jan 2026 14:13:29: [6298 MB]  8000000 reads parsed 
-INFO  @ 14 Jan 2026 14:13:30: [6298 MB]  9000000 reads parsed 
-INFO  @ 14 Jan 2026 14:13:31: [6298 MB]  10000000 reads parsed 
-INFO  @ 14 Jan 2026 14:13:32: [6298 MB]  11000000 reads parsed 
-INFO  @ 14 Jan 2026 14:13:33: [6298 MB]  12000000 reads parsed 
-INFO  @ 14 Jan 2026 14:13:34: [6298 MB]  13000000 reads parsed 
-INFO  @ 14 Jan 2026 14:13:34: [6298 MB]  14000000 reads parsed 
-INFO  @ 14 Jan 2026 14:13:35: [6298 MB]  15000000 reads parsed 
-INFO  @ 14 Jan 2026 14:13:36: [6298 MB]  16000000 reads parsed 
-INFO  @ 14 Jan 2026 14:13:37: [6298 MB]  17000000 reads parsed 
-INFO  @ 14 Jan 2026 14:13:38: [6298 MB]  18000000 reads parsed 
-INFO  @ 14 Jan 2026 14:13:39: [6298 MB]  19000000 reads parsed 
-INFO  @ 14 Jan 2026 14:13:40: [6298 MB]  20000000 reads parsed 
-INFO  @ 14 Jan 2026 14:13:40: [6298 MB]  21000000 reads parsed 
-INFO  @ 14 Jan 2026 14:13:41: [6298 MB]  22000000 reads parsed 
-INFO  @ 14 Jan 2026 14:13:42: [6298 MB]  23000000 reads parsed 
-INFO  @ 14 Jan 2026 14:13:43: [6298 MB]  24000000 reads parsed 
-INFO  @ 14 Jan 2026 14:13:44: [6298 MB]  25000000 reads parsed 
-INFO  @ 14 Jan 2026 14:13:45: [6298 MB]  26000000 reads parsed 
-INFO  @ 14 Jan 2026 14:13:46: [6298 MB]  27000000 reads parsed 
-INFO  @ 14 Jan 2026 14:13:47: [6298 MB]  28000000 reads parsed 
-INFO  @ 14 Jan 2026 14:13:47: [6298 MB]  29000000 reads parsed 
-INFO  @ 14 Jan 2026 14:13:48: [6298 MB]  30000000 reads parsed 
-INFO  @ 14 Jan 2026 14:13:49: [6298 MB]  31000000 reads parsed 
-INFO  @ 14 Jan 2026 14:13:50: [6298 MB]  32000000 reads parsed 
-INFO  @ 14 Jan 2026 14:13:51: [6298 MB]  33000000 reads parsed 
-INFO  @ 14 Jan 2026 14:13:52: [6298 MB]  34000000 reads parsed 
-INFO  @ 14 Jan 2026 14:13:53: [6298 MB]  35000000 reads parsed 
-INFO  @ 14 Jan 2026 14:13:54: [6298 MB]  36000000 reads parsed 
-INFO  @ 14 Jan 2026 14:13:54: [6298 MB]  37000000 reads parsed 
-INFO  @ 14 Jan 2026 14:13:55: [6298 MB]  38000000 reads parsed 
-INFO  @ 14 Jan 2026 14:13:56: [6298 MB]  39000000 reads parsed 
-INFO  @ 14 Jan 2026 14:13:57: [6298 MB]  40000000 reads parsed 
-INFO  @ 14 Jan 2026 14:13:58: [6298 MB]  41000000 reads parsed 
-INFO  @ 14 Jan 2026 14:13:59: [6298 MB]  42000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:00: [6298 MB]  43000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:00: [6298 MB]  44000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:01: [6298 MB]  45000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:02: [6298 MB]  46000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:03: [6298 MB]  47000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:04: [6298 MB]  48000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:05: [6298 MB]  49000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:06: [6298 MB]  50000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:07: [6298 MB]  51000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:07: [6298 MB]  52000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:08: [6298 MB]  53000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:09: [6298 MB]  54000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:10: [6298 MB]  55000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:11: [6298 MB]  56000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:12: [6298 MB]  57000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:13: [6298 MB]  58000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:14: [6298 MB]  59000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:15: [6298 MB]  60000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:15: [6298 MB]  61000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:16: [6298 MB]  62000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:17: [6298 MB]  63000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:18: [6298 MB]  64000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:19: [6298 MB]  65000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:20: [6298 MB]  66000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:21: [6298 MB]  67000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:22: [6298 MB]  68000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:22: [6298 MB]  69000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:23: [6298 MB]  70000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:24: [6298 MB]  71000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:25: [6298 MB]  72000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:26: [6298 MB]  73000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:27: [6298 MB]  74000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:28: [6298 MB]  75000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:29: [6298 MB]  76000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:29: [6298 MB]  77000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:30: [6298 MB]  78000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:31: [6298 MB]  79000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:32: [6298 MB]  80000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:33: [6298 MB]  81000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:34: [6298 MB]  82000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:35: [6298 MB]  83000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:35: [6298 MB]  84000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:36: [6298 MB]  85000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:37: [6298 MB]  86000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:38: [6298 MB]  87000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:39: [6298 MB]  88000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:40: [6298 MB]  89000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:41: [6298 MB]  90000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:42: [6298 MB]  91000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:42: [6298 MB]  92000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:43: [6298 MB]  93000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:44: [6298 MB]  94000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:45: [6298 MB]  95000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:46: [6298 MB]  96000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:47: [6298 MB]  97000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:48: [6298 MB]  98000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:49: [6298 MB]  99000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:50: [6298 MB]  100000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:50: [6298 MB]  101000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:51: [6298 MB]  102000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:52: [6298 MB]  103000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:53: [6298 MB]  104000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:54: [6298 MB]  105000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:55: [6298 MB]  106000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:56: [6298 MB]  107000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:57: [6298 MB]  108000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:58: [6298 MB]  109000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:58: [6298 MB]  110000000 reads parsed 
-INFO  @ 14 Jan 2026 14:14:59: [6298 MB]  111000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:00: [6298 MB]  112000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:01: [6298 MB]  113000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:02: [6298 MB]  114000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:03: [6298 MB]  115000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:04: [6298 MB]  116000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:05: [6298 MB]  117000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:05: [6298 MB]  118000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:06: [6298 MB]  119000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:07: [6298 MB]  120000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:08: [6298 MB]  121000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:09: [6298 MB]  122000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:10: [6298 MB]  123000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:11: [6298 MB]  124000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:11: [6298 MB]  125000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:12: [6298 MB]  126000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:13: [6298 MB]  127000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:14: [6298 MB]  128000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:15: [6298 MB]  129000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:16: [6298 MB]  130000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:17: [6298 MB]  131000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:17: [6298 MB]  132000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:18: [6298 MB]  133000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:19: [6298 MB]  134000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:20: [6298 MB]  135000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:21: [6298 MB]  136000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:22: [6298 MB]  137000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:23: [6298 MB]  138000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:23: [6298 MB]  139000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:24: [6298 MB]  140000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:25: [6298 MB]  141000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:26: [6298 MB]  142000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:27: [6298 MB]  143000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:28: [6298 MB]  144000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:29: [6298 MB]  145000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:30: [6298 MB]  146000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:30: [6298 MB]  147000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:31: [6298 MB]  148000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:32: [6298 MB]  149000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:33: [6298 MB]  150000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:34: [6298 MB]  151000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:35: [6298 MB]  152000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:36: [6298 MB]  153000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:36: [6298 MB]  154000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:37: [6298 MB]  155000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:38: [6298 MB]  156000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:39: [6298 MB]  157000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:40: [6298 MB]  158000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:41: [6298 MB]  159000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:42: [6298 MB]  160000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:43: [6298 MB]  161000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:43: [6298 MB]  162000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:44: [6298 MB]  163000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:45: [6298 MB]  164000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:46: [6298 MB]  165000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:47: [6298 MB]  166000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:48: [6298 MB]  167000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:49: [6298 MB]  168000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:50: [6298 MB]  169000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:51: [6298 MB]  170000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:51: [6298 MB]  171000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:52: [6298 MB]  172000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:53: [6298 MB]  173000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:54: [6298 MB]  174000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:55: [6298 MB]  175000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:56: [6298 MB]  176000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:57: [6298 MB]  177000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:57: [6298 MB]  178000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:58: [6298 MB]  179000000 reads parsed 
-INFO  @ 14 Jan 2026 14:15:59: [6298 MB]  180000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:00: [6298 MB]  181000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:01: [6298 MB]  182000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:02: [6298 MB]  183000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:03: [6298 MB]  184000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:03: [6298 MB]  185000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:04: [6298 MB]  186000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:05: [6298 MB]  187000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:06: [6298 MB]  188000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:07: [6298 MB]  189000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:08: [6298 MB]  190000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:08: [6298 MB]  191000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:09: [6298 MB]  192000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:10: [6298 MB]  193000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:11: [6298 MB]  194000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:12: [6298 MB]  195000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:13: [6298 MB]  196000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:14: [6298 MB]  197000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:15: [6298 MB]  198000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:15: [6298 MB]  199000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:16: [6298 MB]  200000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:17: [6298 MB]  201000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:18: [6298 MB]  202000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:19: [6298 MB]  203000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:20: [6298 MB]  204000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:21: [6298 MB]  205000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:21: [6298 MB]  206000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:22: [6298 MB]  207000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:23: [6298 MB]  208000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:24: [6298 MB]  209000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:25: [6298 MB]  210000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:26: [6298 MB]  211000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:26: [6298 MB]  212000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:27: [6298 MB]  213000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:28: [6298 MB]  214000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:29: [6298 MB]  215000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:30: [6298 MB]  216000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:31: [6298 MB]  217000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:32: [6298 MB]  218000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:32: [6298 MB]  219000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:33: [6298 MB]  220000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:34: [6298 MB]  221000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:35: [6298 MB]  222000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:36: [6298 MB]  223000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:37: [6298 MB]  224000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:37: [6298 MB]  225000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:38: [6298 MB]  226000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:39: [6298 MB]  227000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:40: [6298 MB]  228000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:41: [6298 MB]  229000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:42: [6298 MB]  230000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:43: [6298 MB]  231000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:43: [6298 MB]  232000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:44: [6298 MB]  233000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:45: [6298 MB]  234000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:46: [6298 MB]  235000000 reads parsed 
-INFO  @ 14 Jan 2026 14:16:48: [6298 MB] #1 tag size is determined as 85 bps 
-INFO  @ 14 Jan 2026 14:16:48: [6298 MB] #1 tag size = 85.0 
-INFO  @ 14 Jan 2026 14:16:48: [6298 MB] #1  total tags in treatment: 235428699 
-INFO  @ 14 Jan 2026 14:16:48: [6298 MB] #1 user defined the maximum tags... 
-INFO  @ 14 Jan 2026 14:16:48: [6298 MB] #1 filter out redundant tags at the same location and the same strand by allowing at most 1 tag(s) 
-INFO  @ 14 Jan 2026 14:16:48: [6298 MB] #1  tags after filtering in treatment: 169163516 
-INFO  @ 14 Jan 2026 14:16:48: [6298 MB] #1  Redundant rate of treatment: 0.28 
-INFO  @ 14 Jan 2026 14:16:48: [6298 MB] #1 finished! 
-INFO  @ 14 Jan 2026 14:16:48: [6298 MB] #2 Build Peak Model... 
-INFO  @ 14 Jan 2026 14:16:48: [6298 MB] #2 Skipped... 
-INFO  @ 14 Jan 2026 14:16:48: [6298 MB] #2 Use 200 as fragment length 
-INFO  @ 14 Jan 2026 14:16:48: [6298 MB] #2 Sequencing ends will be shifted towards 5' by 100 bp(s) 
-INFO  @ 14 Jan 2026 14:16:48: [6298 MB] #3 Call peaks... 
-INFO  @ 14 Jan 2026 14:16:49: [6298 MB] #3 Pre-compute pvalue-qvalue table... 
-INFO  @ 14 Jan 2026 14:20:30: [6298 MB] #3 Call peaks for each chromosome... 
-INFO  @ 14 Jan 2026 14:22:28: [6298 MB] #4 Write output xls file... ./data/raw/macs-peaks/JM85-D6-CTRL_peaks.xls 
-INFO  @ 14 Jan 2026 14:22:29: [6298 MB] #4 Write peak in narrowPeak format file... ./data/raw/macs-peaks/JM85-D6-CTRL_peaks.narrowPeak 
-INFO  @ 14 Jan 2026 14:22:29: [6298 MB] #4 Write summits bed file... ./data/raw/macs-peaks/JM85-D6-CTRL_summits.bed 
-INFO  @ 14 Jan 2026 14:22:29: [6298 MB] Done! 
-Extracting reads overlapping genomic regions
-INFO  @ 14 Jan 2026 14:23:06: [7362 MB] 
-# Command line: callpeak -t /sc/arion/projects/naiklab/Alex/Jack-Multiome/2026-01-07-Analysis/scmultiome-pipeline/data/raw/JM85-D6-IMQ/fragments.tsv.gz -g 2.7e+09 -f BED --nomodel --extsize 200 --shift -100 -n JM85-D6-IMQ --outdir ./data/raw/macs-peaks
-# ARGUMENTS LIST:
-# name = JM85-D6-IMQ
-# format = BED
-# ChIP-seq file = ['/sc/arion/projects/naiklab/Alex/Jack-Multiome/2026-01-07-Analysis/scmultiome-pipeline/data/raw/JM85-D6-IMQ/fragments.tsv.gz']
-# control file = None
-# effective genome size = 2.70e+09
-# band width = 300
-# model fold = [5, 50]
-# qvalue cutoff = 5.00e-02
-# The maximum gap between significant sites is assigned as the read length/tag size.
-# The minimum length of peaks is assigned as the predicted fragment length "d".
-# Larger dataset will be scaled towards smaller dataset.
-# Range for calculating regional lambda is: 10000 bps
-# Broad region calling is off
-# Paired-End mode is off
- 
-INFO  @ 14 Jan 2026 14:23:06: [7362 MB] #1 read tag files... 
-INFO  @ 14 Jan 2026 14:23:06: [7362 MB] #1 read treatment tags... 
-INFO  @ 14 Jan 2026 14:23:07: [7362 MB]  1000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:08: [7362 MB]  2000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:09: [7362 MB]  3000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:09: [7362 MB]  4000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:10: [7362 MB]  5000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:11: [7362 MB]  6000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:12: [7362 MB]  7000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:13: [7362 MB]  8000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:14: [7362 MB]  9000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:15: [7362 MB]  10000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:16: [7362 MB]  11000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:16: [7362 MB]  12000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:17: [7362 MB]  13000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:18: [7362 MB]  14000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:19: [7362 MB]  15000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:20: [7362 MB]  16000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:21: [7362 MB]  17000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:22: [7362 MB]  18000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:22: [7362 MB]  19000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:23: [7362 MB]  20000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:24: [7362 MB]  21000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:25: [7362 MB]  22000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:26: [7362 MB]  23000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:27: [7362 MB]  24000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:28: [7362 MB]  25000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:28: [7362 MB]  26000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:29: [7362 MB]  27000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:30: [7362 MB]  28000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:31: [7362 MB]  29000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:32: [7362 MB]  30000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:33: [7362 MB]  31000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:34: [7362 MB]  32000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:35: [7362 MB]  33000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:35: [7362 MB]  34000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:36: [7362 MB]  35000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:37: [7362 MB]  36000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:38: [7362 MB]  37000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:39: [7362 MB]  38000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:40: [7362 MB]  39000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:41: [7362 MB]  40000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:41: [7362 MB]  41000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:42: [7362 MB]  42000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:43: [7362 MB]  43000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:44: [7362 MB]  44000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:45: [7362 MB]  45000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:46: [7362 MB]  46000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:47: [7362 MB]  47000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:47: [7362 MB]  48000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:48: [7362 MB]  49000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:49: [7362 MB]  50000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:50: [7362 MB]  51000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:51: [7362 MB]  52000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:52: [7362 MB]  53000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:53: [7362 MB]  54000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:53: [7362 MB]  55000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:54: [7362 MB]  56000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:55: [7362 MB]  57000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:56: [7362 MB]  58000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:57: [7362 MB]  59000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:58: [7362 MB]  60000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:59: [7362 MB]  61000000 reads parsed 
-INFO  @ 14 Jan 2026 14:23:59: [7362 MB]  62000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:00: [7362 MB]  63000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:01: [7362 MB]  64000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:02: [7362 MB]  65000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:03: [7362 MB]  66000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:04: [7362 MB]  67000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:05: [7362 MB]  68000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:05: [7362 MB]  69000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:06: [7362 MB]  70000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:07: [7362 MB]  71000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:08: [7362 MB]  72000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:09: [7362 MB]  73000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:10: [7362 MB]  74000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:11: [7362 MB]  75000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:11: [7362 MB]  76000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:12: [7362 MB]  77000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:13: [7362 MB]  78000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:14: [7362 MB]  79000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:15: [7362 MB]  80000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:16: [7362 MB]  81000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:17: [7362 MB]  82000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:18: [7362 MB]  83000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:18: [7362 MB]  84000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:19: [7362 MB]  85000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:20: [7362 MB]  86000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:21: [7362 MB]  87000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:22: [7362 MB]  88000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:23: [7362 MB]  89000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:24: [7362 MB]  90000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:24: [7362 MB]  91000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:25: [7362 MB]  92000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:26: [7362 MB]  93000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:27: [7362 MB]  94000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:28: [7362 MB]  95000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:29: [7362 MB]  96000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:30: [7362 MB]  97000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:31: [7362 MB]  98000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:31: [7362 MB]  99000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:32: [7362 MB]  100000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:33: [7362 MB]  101000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:34: [7362 MB]  102000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:35: [7362 MB]  103000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:36: [7362 MB]  104000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:37: [7362 MB]  105000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:38: [7362 MB]  106000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:38: [7362 MB]  107000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:39: [7362 MB]  108000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:40: [7362 MB]  109000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:41: [7362 MB]  110000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:42: [7362 MB]  111000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:43: [7362 MB]  112000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:44: [7362 MB]  113000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:44: [7362 MB]  114000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:45: [7362 MB]  115000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:46: [7362 MB]  116000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:47: [7362 MB]  117000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:48: [7362 MB]  118000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:49: [7362 MB]  119000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:50: [7362 MB]  120000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:50: [7362 MB]  121000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:51: [7362 MB]  122000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:52: [7362 MB]  123000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:53: [7362 MB]  124000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:54: [7362 MB]  125000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:55: [7362 MB]  126000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:56: [7362 MB]  127000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:57: [7362 MB]  128000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:57: [7362 MB]  129000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:58: [7362 MB]  130000000 reads parsed 
-INFO  @ 14 Jan 2026 14:24:59: [7362 MB]  131000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:00: [7362 MB]  132000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:01: [7362 MB]  133000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:02: [7362 MB]  134000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:02: [7362 MB]  135000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:03: [7362 MB]  136000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:04: [7362 MB]  137000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:05: [7362 MB]  138000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:06: [7362 MB]  139000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:07: [7362 MB]  140000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:08: [7362 MB]  141000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:08: [7362 MB]  142000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:09: [7362 MB]  143000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:10: [7362 MB]  144000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:11: [7362 MB]  145000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:12: [7362 MB]  146000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:13: [7362 MB]  147000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:14: [7362 MB]  148000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:15: [7362 MB]  149000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:16: [7362 MB]  150000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:16: [7362 MB]  151000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:17: [7362 MB]  152000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:18: [7362 MB]  153000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:19: [7362 MB]  154000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:20: [7362 MB]  155000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:21: [7362 MB]  156000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:22: [7362 MB]  157000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:22: [7362 MB]  158000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:23: [7362 MB]  159000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:24: [7362 MB]  160000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:25: [7362 MB]  161000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:26: [7362 MB]  162000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:27: [7362 MB]  163000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:28: [7362 MB]  164000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:28: [7362 MB]  165000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:29: [7362 MB]  166000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:30: [7362 MB]  167000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:31: [7362 MB]  168000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:32: [7362 MB]  169000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:33: [7362 MB]  170000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:34: [7362 MB]  171000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:34: [7362 MB]  172000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:35: [7362 MB]  173000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:36: [7362 MB]  174000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:37: [7362 MB]  175000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:38: [7362 MB]  176000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:39: [7362 MB]  177000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:40: [7362 MB]  178000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:41: [7362 MB]  179000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:41: [7362 MB]  180000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:42: [7362 MB]  181000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:43: [7362 MB]  182000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:44: [7362 MB]  183000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:45: [7362 MB]  184000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:46: [7362 MB]  185000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:47: [7362 MB]  186000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:47: [7362 MB]  187000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:48: [7362 MB]  188000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:49: [7362 MB]  189000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:50: [7362 MB]  190000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:51: [7362 MB]  191000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:52: [7362 MB]  192000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:53: [7362 MB]  193000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:53: [7362 MB]  194000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:54: [7362 MB]  195000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:55: [7362 MB]  196000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:56: [7362 MB]  197000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:57: [7362 MB]  198000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:58: [7362 MB]  199000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:59: [7362 MB]  200000000 reads parsed 
-INFO  @ 14 Jan 2026 14:25:59: [7362 MB]  201000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:00: [7362 MB]  202000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:01: [7362 MB]  203000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:02: [7362 MB]  204000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:03: [7362 MB]  205000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:04: [7362 MB]  206000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:05: [7362 MB]  207000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:05: [7362 MB]  208000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:06: [7362 MB]  209000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:07: [7362 MB]  210000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:08: [7362 MB]  211000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:09: [7362 MB]  212000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:10: [7362 MB]  213000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:11: [7362 MB]  214000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:11: [7362 MB]  215000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:12: [7362 MB]  216000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:13: [7362 MB]  217000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:14: [7362 MB]  218000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:15: [7362 MB]  219000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:16: [7362 MB]  220000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:17: [7362 MB]  221000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:17: [7362 MB]  222000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:18: [7362 MB]  223000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:19: [7362 MB]  224000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:20: [7362 MB]  225000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:21: [7362 MB]  226000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:22: [7362 MB]  227000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:22: [7362 MB]  228000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:23: [7362 MB]  229000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:24: [7362 MB]  230000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:25: [7362 MB]  231000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:26: [7362 MB]  232000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:27: [7362 MB]  233000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:28: [7362 MB]  234000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:28: [7362 MB]  235000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:29: [7362 MB]  236000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:30: [7362 MB]  237000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:31: [7362 MB]  238000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:32: [7362 MB]  239000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:33: [7362 MB]  240000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:33: [7362 MB]  241000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:34: [7362 MB]  242000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:35: [7362 MB]  243000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:36: [7362 MB]  244000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:37: [7362 MB]  245000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:38: [7362 MB]  246000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:38: [7362 MB]  247000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:39: [7362 MB]  248000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:40: [7362 MB]  249000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:41: [7362 MB]  250000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:42: [7362 MB]  251000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:43: [7362 MB]  252000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:43: [7362 MB]  253000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:44: [7362 MB]  254000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:45: [7362 MB]  255000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:46: [7362 MB]  256000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:47: [7362 MB]  257000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:48: [7362 MB]  258000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:48: [7362 MB]  259000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:49: [7362 MB]  260000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:50: [7362 MB]  261000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:51: [7362 MB]  262000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:52: [7362 MB]  263000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:53: [7362 MB]  264000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:53: [7362 MB]  265000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:54: [7362 MB]  266000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:55: [7362 MB]  267000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:56: [7362 MB]  268000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:57: [7362 MB]  269000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:58: [7362 MB]  270000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:58: [7362 MB]  271000000 reads parsed 
-INFO  @ 14 Jan 2026 14:26:59: [7362 MB]  272000000 reads parsed 
-INFO  @ 14 Jan 2026 14:27:00: [7362 MB]  273000000 reads parsed 
-INFO  @ 14 Jan 2026 14:27:01: [7362 MB]  274000000 reads parsed 
-INFO  @ 14 Jan 2026 14:27:02: [7362 MB]  275000000 reads parsed 
-INFO  @ 14 Jan 2026 14:27:03: [7362 MB]  276000000 reads parsed 
-INFO  @ 14 Jan 2026 14:27:03: [7362 MB]  277000000 reads parsed 
-INFO  @ 14 Jan 2026 14:27:04: [7362 MB]  278000000 reads parsed 
-INFO  @ 14 Jan 2026 14:27:05: [7362 MB]  279000000 reads parsed 
-INFO  @ 14 Jan 2026 14:27:06: [7362 MB]  280000000 reads parsed 
-INFO  @ 14 Jan 2026 14:27:07: [7362 MB]  281000000 reads parsed 
-INFO  @ 14 Jan 2026 14:27:08: [7362 MB]  282000000 reads parsed 
-INFO  @ 14 Jan 2026 14:27:09: [7362 MB]  283000000 reads parsed 
-INFO  @ 14 Jan 2026 14:27:09: [7362 MB]  284000000 reads parsed 
-INFO  @ 14 Jan 2026 14:27:10: [7362 MB]  285000000 reads parsed 
-INFO  @ 14 Jan 2026 14:27:11: [7362 MB]  286000000 reads parsed 
-INFO  @ 14 Jan 2026 14:27:12: [7362 MB]  287000000 reads parsed 
-INFO  @ 14 Jan 2026 14:27:13: [7362 MB]  288000000 reads parsed 
-INFO  @ 14 Jan 2026 14:27:14: [7362 MB]  289000000 reads parsed 
-INFO  @ 14 Jan 2026 14:27:14: [7362 MB]  290000000 reads parsed 
-INFO  @ 14 Jan 2026 14:27:15: [7362 MB]  291000000 reads parsed 
-INFO  @ 14 Jan 2026 14:27:16: [7362 MB]  292000000 reads parsed 
-INFO  @ 14 Jan 2026 14:27:17: [7362 MB]  293000000 reads parsed 
-INFO  @ 14 Jan 2026 14:27:18: [7362 MB]  294000000 reads parsed 
-INFO  @ 14 Jan 2026 14:27:19: [7362 MB]  295000000 reads parsed 
-INFO  @ 14 Jan 2026 14:27:19: [7362 MB]  296000000 reads parsed 
-INFO  @ 14 Jan 2026 14:27:20: [7362 MB]  297000000 reads parsed 
-INFO  @ 14 Jan 2026 14:27:21: [7362 MB]  298000000 reads parsed 
-INFO  @ 14 Jan 2026 14:27:22: [7362 MB]  299000000 reads parsed 
-INFO  @ 14 Jan 2026 14:27:23: [7362 MB]  300000000 reads parsed 
-INFO  @ 14 Jan 2026 14:27:24: [7362 MB]  301000000 reads parsed 
-INFO  @ 14 Jan 2026 14:27:25: [7362 MB]  302000000 reads parsed 
-INFO  @ 14 Jan 2026 14:27:25: [7362 MB]  303000000 reads parsed 
-INFO  @ 14 Jan 2026 14:27:26: [7362 MB]  304000000 reads parsed 
-INFO  @ 14 Jan 2026 14:27:27: [7362 MB]  305000000 reads parsed 
-INFO  @ 14 Jan 2026 14:27:28: [7362 MB]  306000000 reads parsed 
-INFO  @ 14 Jan 2026 14:27:29: [7362 MB]  307000000 reads parsed 
-INFO  @ 14 Jan 2026 14:27:30: [7362 MB]  308000000 reads parsed 
-INFO  @ 14 Jan 2026 14:27:32: [7362 MB] #1 tag size is determined as 95 bps 
-INFO  @ 14 Jan 2026 14:27:32: [7362 MB] #1 tag size = 95.0 
-INFO  @ 14 Jan 2026 14:27:32: [7362 MB] #1  total tags in treatment: 308422992 
-INFO  @ 14 Jan 2026 14:27:32: [7362 MB] #1 user defined the maximum tags... 
-INFO  @ 14 Jan 2026 14:27:32: [7362 MB] #1 filter out redundant tags at the same location and the same strand by allowing at most 1 tag(s) 
-INFO  @ 14 Jan 2026 14:27:33: [7362 MB] #1  tags after filtering in treatment: 210679475 
-INFO  @ 14 Jan 2026 14:27:33: [7362 MB] #1  Redundant rate of treatment: 0.32 
-INFO  @ 14 Jan 2026 14:27:33: [7362 MB] #1 finished! 
-INFO  @ 14 Jan 2026 14:27:33: [7362 MB] #2 Build Peak Model... 
-INFO  @ 14 Jan 2026 14:27:33: [7362 MB] #2 Skipped... 
-INFO  @ 14 Jan 2026 14:27:33: [7362 MB] #2 Use 200 as fragment length 
-INFO  @ 14 Jan 2026 14:27:33: [7362 MB] #2 Sequencing ends will be shifted towards 5' by 100 bp(s) 
-INFO  @ 14 Jan 2026 14:27:33: [7362 MB] #3 Call peaks... 
-INFO  @ 14 Jan 2026 14:27:33: [7362 MB] #3 Pre-compute pvalue-qvalue table... 
-INFO  @ 14 Jan 2026 14:32:07: [7362 MB] #3 Call peaks for each chromosome... 
-INFO  @ 14 Jan 2026 14:34:34: [7362 MB] #4 Write output xls file... ./data/raw/macs-peaks/JM85-D6-IMQ_peaks.xls 
-INFO  @ 14 Jan 2026 14:34:35: [7362 MB] #4 Write peak in narrowPeak format file... ./data/raw/macs-peaks/JM85-D6-IMQ_peaks.narrowPeak 
-INFO  @ 14 Jan 2026 14:34:35: [7362 MB] #4 Write summits bed file... ./data/raw/macs-peaks/JM85-D6-IMQ_summits.bed 
-INFO  @ 14 Jan 2026 14:34:35: [7362 MB] Done! 
-Extracting reads overlapping genomic regions
-INFO  @ 14 Jan 2026 14:35:24: [8846 MB] 
-# Command line: callpeak -t /sc/arion/projects/naiklab/Alex/Jack-Multiome/2026-01-07-Analysis/scmultiome-pipeline/data/raw/JM50-D6-IMQ/fragments.tsv.gz -g 2.7e+09 -f BED --nomodel --extsize 200 --shift -100 -n JM50-D6-IMQ --outdir ./data/raw/macs-peaks
-# ARGUMENTS LIST:
-# name = JM50-D6-IMQ
-# format = BED
-# ChIP-seq file = ['/sc/arion/projects/naiklab/Alex/Jack-Multiome/2026-01-07-Analysis/scmultiome-pipeline/data/raw/JM50-D6-IMQ/fragments.tsv.gz']
-# control file = None
-# effective genome size = 2.70e+09
-# band width = 300
-# model fold = [5, 50]
-# qvalue cutoff = 5.00e-02
-# The maximum gap between significant sites is assigned as the read length/tag size.
-# The minimum length of peaks is assigned as the predicted fragment length "d".
-# Larger dataset will be scaled towards smaller dataset.
-# Range for calculating regional lambda is: 10000 bps
-# Broad region calling is off
-# Paired-End mode is off
- 
-INFO  @ 14 Jan 2026 14:35:24: [8846 MB] #1 read tag files... 
-INFO  @ 14 Jan 2026 14:35:24: [8846 MB] #1 read treatment tags... 
-INFO  @ 14 Jan 2026 14:35:25: [8846 MB]  1000000 reads parsed 
-INFO  @ 14 Jan 2026 14:35:26: [8846 MB]  2000000 reads parsed 
-INFO  @ 14 Jan 2026 14:35:27: [8846 MB]  3000000 reads parsed 
-INFO  @ 14 Jan 2026 14:35:28: [8846 MB]  4000000 reads parsed 
-INFO  @ 14 Jan 2026 14:35:28: [8846 MB]  5000000 reads parsed 
-INFO  @ 14 Jan 2026 14:35:29: [8846 MB]  6000000 reads parsed 
-INFO  @ 14 Jan 2026 14:35:30: [8846 MB]  7000000 reads parsed 
-INFO  @ 14 Jan 2026 14:35:31: [8846 MB]  8000000 reads parsed 
-INFO  @ 14 Jan 2026 14:35:32: [8846 MB]  9000000 reads parsed 
-INFO  @ 14 Jan 2026 14:35:33: [8846 MB]  10000000 reads parsed 
-INFO  @ 14 Jan 2026 14:35:34: [8846 MB]  11000000 reads parsed 
-INFO  @ 14 Jan 2026 14:35:34: [8846 MB]  12000000 reads parsed 
-INFO  @ 14 Jan 2026 14:35:35: [8846 MB]  13000000 reads parsed 
-INFO  @ 14 Jan 2026 14:35:36: [8846 MB]  14000000 reads parsed 
-INFO  @ 14 Jan 2026 14:35:37: [8846 MB]  15000000 reads parsed 
-INFO  @ 14 Jan 2026 14:35:38: [8846 MB]  16000000 reads parsed 
-INFO  @ 14 Jan 2026 14:35:39: [8846 MB]  17000000 reads parsed 
-INFO  @ 14 Jan 2026 14:35:40: [8846 MB]  18000000 reads parsed 
-INFO  @ 14 Jan 2026 14:35:40: [8846 MB]  19000000 reads parsed 
-INFO  @ 14 Jan 2026 14:35:41: [8846 MB]  20000000 reads parsed 
-INFO  @ 14 Jan 2026 14:35:42: [8846 MB]  21000000 reads parsed 
-INFO  @ 14 Jan 2026 14:35:43: [8846 MB]  22000000 reads parsed 
-INFO  @ 14 Jan 2026 14:35:44: [8846 MB]  23000000 reads parsed 
-INFO  @ 14 Jan 2026 14:35:45: [8846 MB]  24000000 reads parsed 
-INFO  @ 14 Jan 2026 14:35:46: [8846 MB]  25000000 reads parsed 
-INFO  @ 14 Jan 2026 14:35:47: [8846 MB]  26000000 reads parsed 
-INFO  @ 14 Jan 2026 14:35:47: [8846 MB]  27000000 reads parsed 
-INFO  @ 14 Jan 2026 14:35:48: [8846 MB]  28000000 reads parsed 
-INFO  @ 14 Jan 2026 14:35:49: [8846 MB]  29000000 reads parsed 
-INFO  @ 14 Jan 2026 14:35:50: [8846 MB]  30000000 reads parsed 
-INFO  @ 14 Jan 2026 14:35:51: [8846 MB]  31000000 reads parsed 
-INFO  @ 14 Jan 2026 14:35:52: [8846 MB]  32000000 reads parsed 
-INFO  @ 14 Jan 2026 14:35:52: [8846 MB]  33000000 reads parsed 
-INFO  @ 14 Jan 2026 14:35:53: [8846 MB]  34000000 reads parsed 
-INFO  @ 14 Jan 2026 14:35:54: [8846 MB]  35000000 reads parsed 
-INFO  @ 14 Jan 2026 14:35:55: [8846 MB]  36000000 reads parsed 
-INFO  @ 14 Jan 2026 14:35:56: [8846 MB]  37000000 reads parsed 
-INFO  @ 14 Jan 2026 14:35:57: [8846 MB]  38000000 reads parsed 
-INFO  @ 14 Jan 2026 14:35:58: [8846 MB]  39000000 reads parsed 
-INFO  @ 14 Jan 2026 14:35:59: [8846 MB]  40000000 reads parsed 
-INFO  @ 14 Jan 2026 14:35:59: [8846 MB]  41000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:00: [8846 MB]  42000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:01: [8846 MB]  43000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:02: [8846 MB]  44000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:03: [8846 MB]  45000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:04: [8846 MB]  46000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:05: [8846 MB]  47000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:05: [8846 MB]  48000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:06: [8846 MB]  49000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:07: [8846 MB]  50000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:08: [8846 MB]  51000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:09: [8846 MB]  52000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:10: [8846 MB]  53000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:11: [8846 MB]  54000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:12: [8846 MB]  55000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:12: [8846 MB]  56000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:13: [8846 MB]  57000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:14: [8846 MB]  58000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:15: [8846 MB]  59000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:16: [8846 MB]  60000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:17: [8846 MB]  61000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:18: [8846 MB]  62000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:18: [8846 MB]  63000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:19: [8846 MB]  64000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:20: [8846 MB]  65000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:21: [8846 MB]  66000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:22: [8846 MB]  67000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:23: [8846 MB]  68000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:24: [8846 MB]  69000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:24: [8846 MB]  70000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:25: [8846 MB]  71000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:26: [8846 MB]  72000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:27: [8846 MB]  73000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:28: [8846 MB]  74000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:29: [8846 MB]  75000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:30: [8846 MB]  76000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:30: [8846 MB]  77000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:31: [8846 MB]  78000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:32: [8846 MB]  79000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:33: [8846 MB]  80000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:34: [8846 MB]  81000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:35: [8846 MB]  82000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:35: [8846 MB]  83000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:36: [8846 MB]  84000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:37: [8846 MB]  85000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:38: [8846 MB]  86000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:39: [8846 MB]  87000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:40: [8846 MB]  88000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:41: [8846 MB]  89000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:41: [8846 MB]  90000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:42: [8846 MB]  91000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:43: [8846 MB]  92000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:44: [8846 MB]  93000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:45: [8846 MB]  94000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:46: [8846 MB]  95000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:46: [8846 MB]  96000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:47: [8846 MB]  97000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:48: [8846 MB]  98000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:49: [8846 MB]  99000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:50: [8846 MB]  100000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:51: [8846 MB]  101000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:51: [8846 MB]  102000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:52: [8846 MB]  103000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:53: [8846 MB]  104000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:54: [8846 MB]  105000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:55: [8846 MB]  106000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:56: [8846 MB]  107000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:56: [8846 MB]  108000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:57: [8846 MB]  109000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:58: [8846 MB]  110000000 reads parsed 
-INFO  @ 14 Jan 2026 14:36:59: [8846 MB]  111000000 reads parsed 
-INFO  @ 14 Jan 2026 14:37:00: [8846 MB]  112000000 reads parsed 
-INFO  @ 14 Jan 2026 14:37:01: [8846 MB]  113000000 reads parsed 
-INFO  @ 14 Jan 2026 14:37:01: [8846 MB]  114000000 reads parsed 
-INFO  @ 14 Jan 2026 14:37:02: [8846 MB]  115000000 reads parsed 
-INFO  @ 14 Jan 2026 14:37:03: [8846 MB]  116000000 reads parsed 
-INFO  @ 14 Jan 2026 14:37:04: [8846 MB]  117000000 reads parsed 
-INFO  @ 14 Jan 2026 14:37:05: [8846 MB]  118000000 reads parsed 
-INFO  @ 14 Jan 2026 14:37:06: [8846 MB]  119000000 reads parsed 
-INFO  @ 14 Jan 2026 14:37:07: [8846 MB]  120000000 reads parsed 
-INFO  @ 14 Jan 2026 14:37:07: [8846 MB]  121000000 reads parsed 
-INFO  @ 14 Jan 2026 14:37:08: [8846 MB]  122000000 reads parsed 
-INFO  @ 14 Jan 2026 14:37:09: [8846 MB]  123000000 reads parsed 
-INFO  @ 14 Jan 2026 14:37:10: [8846 MB]  124000000 reads parsed 
-INFO  @ 14 Jan 2026 14:37:11: [8846 MB]  125000000 reads parsed 
-INFO  @ 14 Jan 2026 14:37:12: [8846 MB]  126000000 reads parsed 
-INFO  @ 14 Jan 2026 14:37:12: [8846 MB]  127000000 reads parsed 
-INFO  @ 14 Jan 2026 14:37:13: [8846 MB]  128000000 reads parsed 
-INFO  @ 14 Jan 2026 14:37:14: [8846 MB]  129000000 reads parsed 
-INFO  @ 14 Jan 2026 14:37:15: [8846 MB]  130000000 reads parsed 
-INFO  @ 14 Jan 2026 14:37:16: [8846 MB]  131000000 reads parsed 
-INFO  @ 14 Jan 2026 14:37:17: [8846 MB]  132000000 reads parsed 
-INFO  @ 14 Jan 2026 14:37:17: [8846 MB]  133000000 reads parsed 
-INFO  @ 14 Jan 2026 14:37:18: [8846 MB]  134000000 reads parsed 
-INFO  @ 14 Jan 2026 14:37:19: [8846 MB]  135000000 reads parsed 
-INFO  @ 14 Jan 2026 14:37:20: [8846 MB]  136000000 reads parsed 
-INFO  @ 14 Jan 2026 14:37:21: [8846 MB]  137000000 reads parsed 
-INFO  @ 14 Jan 2026 14:37:22: [8846 MB]  138000000 reads parsed 
-INFO  @ 14 Jan 2026 14:37:22: [8846 MB]  139000000 reads parsed 
-INFO  @ 14 Jan 2026 14:37:23: [8846 MB]  140000000 reads parsed 
-INFO  @ 14 Jan 2026 14:37:24: [8846 MB]  141000000 reads parsed 
-INFO  @ 14 Jan 2026 14:37:25: [8846 MB]  142000000 reads parsed 
-INFO  @ 14 Jan 2026 14:37:26: [8846 MB]  143000000 reads parsed 
-INFO  @ 14 Jan 2026 14:37:27: [8846 MB]  144000000 reads parsed 
-INFO  @ 14 Jan 2026 14:37:27: [8846 MB]  145000000 reads parsed 
-INFO  @ 14 Jan 2026 14:37:28: [8846 MB]  146000000 reads parsed 
-INFO  @ 14 Jan 2026 14:37:29: [8846 MB]  147000000 reads parsed 
-INFO  @ 14 Jan 2026 14:37:30: [8846 MB]  148000000 reads parsed 
-INFO  @ 14 Jan 2026 14:37:31: [8846 MB]  149000000 reads parsed 
-INFO  @ 14 Jan 2026 14:37:32: [8846 MB]  150000000 reads parsed 
-INFO  @ 14 Jan 2026 14:37:33: [8846 MB]  151000000 reads parsed 
-INFO  @ 14 Jan 2026 14:37:33: [8846 MB]  152000000 reads parsed 
-INFO  @ 14 Jan 2026 14:37:34: [8846 MB]  153000000 reads parsed 
-INFO  @ 14 Jan 2026 14:37:35: [8846 MB]  154000000 reads parsed 
-INFO  @ 14 Jan 2026 14:37:36: [8846 MB]  155000000 reads parsed 
-INFO  @ 14 Jan 2026 14:37:37: [8846 MB]  156000000 reads parsed 
-INFO  @ 14 Jan 2026 14:37:38: [8846 MB]  157000000 reads parsed 
-INFO  @ 14 Jan 2026 14:37:38: [8846 MB]  158000000 reads parsed 
-INFO  @ 14 Jan 2026 14:37:39: [8846 MB]  159000000 reads parsed 
-INFO  @ 14 Jan 2026 14:37:40: [8846 MB] #1 tag size is determined as 103 bps 
-INFO  @ 14 Jan 2026 14:37:40: [8846 MB] #1 tag size = 103.0 
-INFO  @ 14 Jan 2026 14:37:40: [8846 MB] #1  total tags in treatment: 159080171 
-INFO  @ 14 Jan 2026 14:37:40: [8846 MB] #1 user defined the maximum tags... 
-INFO  @ 14 Jan 2026 14:37:40: [8846 MB] #1 filter out redundant tags at the same location and the same strand by allowing at most 1 tag(s) 
-INFO  @ 14 Jan 2026 14:37:40: [8846 MB] #1  tags after filtering in treatment: 132198152 
-INFO  @ 14 Jan 2026 14:37:40: [8846 MB] #1  Redundant rate of treatment: 0.17 
-INFO  @ 14 Jan 2026 14:37:40: [8846 MB] #1 finished! 
-INFO  @ 14 Jan 2026 14:37:40: [8846 MB] #2 Build Peak Model... 
-INFO  @ 14 Jan 2026 14:37:40: [8846 MB] #2 Skipped... 
-INFO  @ 14 Jan 2026 14:37:40: [8846 MB] #2 Use 200 as fragment length 
-INFO  @ 14 Jan 2026 14:37:40: [8846 MB] #2 Sequencing ends will be shifted towards 5' by 100 bp(s) 
-INFO  @ 14 Jan 2026 14:37:40: [8846 MB] #3 Call peaks... 
-INFO  @ 14 Jan 2026 14:37:40: [8846 MB] #3 Pre-compute pvalue-qvalue table... 
-INFO  @ 14 Jan 2026 14:40:32: [8846 MB] #3 Call peaks for each chromosome... 
-INFO  @ 14 Jan 2026 14:42:04: [8846 MB] #4 Write output xls file... ./data/raw/macs-peaks/JM50-D6-IMQ_peaks.xls 
-INFO  @ 14 Jan 2026 14:42:05: [8846 MB] #4 Write peak in narrowPeak format file... ./data/raw/macs-peaks/JM50-D6-IMQ_peaks.narrowPeak 
-INFO  @ 14 Jan 2026 14:42:05: [8846 MB] #4 Write summits bed file... ./data/raw/macs-peaks/JM50-D6-IMQ_summits.bed 
-INFO  @ 14 Jan 2026 14:42:05: [8846 MB] Done! 
-Extracting reads overlapping genomic regions
-INFO  @ 14 Jan 2026 14:42:17: [8846 MB] 
-# Command line: callpeak -t /sc/arion/projects/naiklab/Alex/Jack-Multiome/2026-01-07-Analysis/scmultiome-pipeline/data/raw/JM97-D2-CTRL/fragments.tsv.gz -g 2.7e+09 -f BED --nomodel --extsize 200 --shift -100 -n JM97-D2-CTRL --outdir ./data/raw/macs-peaks
-# ARGUMENTS LIST:
-# name = JM97-D2-CTRL
-# format = BED
-# ChIP-seq file = ['/sc/arion/projects/naiklab/Alex/Jack-Multiome/2026-01-07-Analysis/scmultiome-pipeline/data/raw/JM97-D2-CTRL/fragments.tsv.gz']
-# control file = None
-# effective genome size = 2.70e+09
-# band width = 300
-# model fold = [5, 50]
-# qvalue cutoff = 5.00e-02
-# The maximum gap between significant sites is assigned as the read length/tag size.
-# The minimum length of peaks is assigned as the predicted fragment length "d".
-# Larger dataset will be scaled towards smaller dataset.
-# Range for calculating regional lambda is: 10000 bps
-# Broad region calling is off
-# Paired-End mode is off
- 
-INFO  @ 14 Jan 2026 14:42:17: [8846 MB] #1 read tag files... 
-INFO  @ 14 Jan 2026 14:42:17: [8846 MB] #1 read treatment tags... 
-INFO  @ 14 Jan 2026 14:42:18: [8846 MB]  1000000 reads parsed 
-INFO  @ 14 Jan 2026 14:42:19: [8846 MB]  2000000 reads parsed 
-INFO  @ 14 Jan 2026 14:42:20: [8846 MB]  3000000 reads parsed 
-INFO  @ 14 Jan 2026 14:42:21: [8846 MB]  4000000 reads parsed 
-INFO  @ 14 Jan 2026 14:42:22: [8846 MB]  5000000 reads parsed 
-INFO  @ 14 Jan 2026 14:42:22: [8846 MB]  6000000 reads parsed 
-INFO  @ 14 Jan 2026 14:42:23: [8846 MB]  7000000 reads parsed 
-INFO  @ 14 Jan 2026 14:42:24: [8846 MB]  8000000 reads parsed 
-INFO  @ 14 Jan 2026 14:42:25: [8846 MB]  9000000 reads parsed 
-INFO  @ 14 Jan 2026 14:42:26: [8846 MB]  10000000 reads parsed 
-INFO  @ 14 Jan 2026 14:42:27: [8846 MB]  11000000 reads parsed 
-INFO  @ 14 Jan 2026 14:42:28: [8846 MB]  12000000 reads parsed 
-INFO  @ 14 Jan 2026 14:42:28: [8846 MB]  13000000 reads parsed 
-INFO  @ 14 Jan 2026 14:42:29: [8846 MB]  14000000 reads parsed 
-INFO  @ 14 Jan 2026 14:42:30: [8846 MB]  15000000 reads parsed 
-INFO  @ 14 Jan 2026 14:42:31: [8846 MB]  16000000 reads parsed 
-INFO  @ 14 Jan 2026 14:42:32: [8846 MB]  17000000 reads parsed 
-INFO  @ 14 Jan 2026 14:42:33: [8846 MB]  18000000 reads parsed 
-INFO  @ 14 Jan 2026 14:42:34: [8846 MB]  19000000 reads parsed 
-INFO  @ 14 Jan 2026 14:42:34: [8846 MB]  20000000 reads parsed 
-INFO  @ 14 Jan 2026 14:42:35: [8846 MB]  21000000 reads parsed 
-INFO  @ 14 Jan 2026 14:42:36: [8846 MB]  22000000 reads parsed 
-INFO  @ 14 Jan 2026 14:42:37: [8846 MB]  23000000 reads parsed 
-INFO  @ 14 Jan 2026 14:42:38: [8846 MB]  24000000 reads parsed 
-INFO  @ 14 Jan 2026 14:42:39: [8846 MB]  25000000 reads parsed 
-INFO  @ 14 Jan 2026 14:42:40: [8846 MB]  26000000 reads parsed 
-INFO  @ 14 Jan 2026 14:42:41: [8846 MB]  27000000 reads parsed 
-INFO  @ 14 Jan 2026 14:42:41: [8846 MB]  28000000 reads parsed 
-INFO  @ 14 Jan 2026 14:42:42: [8846 MB]  29000000 reads parsed 
-INFO  @ 14 Jan 2026 14:42:43: [8846 MB]  30000000 reads parsed 
-INFO  @ 14 Jan 2026 14:42:44: [8846 MB]  31000000 reads parsed 
-INFO  @ 14 Jan 2026 14:42:45: [8846 MB]  32000000 reads parsed 
-INFO  @ 14 Jan 2026 14:42:46: [8846 MB]  33000000 reads parsed 
-INFO  @ 14 Jan 2026 14:42:47: [8846 MB]  34000000 reads parsed 
-INFO  @ 14 Jan 2026 14:42:47: [8846 MB]  35000000 reads parsed 
-INFO  @ 14 Jan 2026 14:42:48: [8846 MB]  36000000 reads parsed 
-INFO  @ 14 Jan 2026 14:42:49: [8846 MB]  37000000 reads parsed 
-INFO  @ 14 Jan 2026 14:42:50: [8846 MB]  38000000 reads parsed 
-INFO  @ 14 Jan 2026 14:42:51: [8846 MB]  39000000 reads parsed 
-INFO  @ 14 Jan 2026 14:42:52: [8846 MB]  40000000 reads parsed 
-INFO  @ 14 Jan 2026 14:42:53: [8846 MB]  41000000 reads parsed 
-INFO  @ 14 Jan 2026 14:42:53: [8846 MB]  42000000 reads parsed 
-INFO  @ 14 Jan 2026 14:42:54: [8846 MB]  43000000 reads parsed 
-INFO  @ 14 Jan 2026 14:42:55: [8846 MB]  44000000 reads parsed 
-INFO  @ 14 Jan 2026 14:42:56: [8846 MB]  45000000 reads parsed 
-INFO  @ 14 Jan 2026 14:42:57: [8846 MB]  46000000 reads parsed 
-INFO  @ 14 Jan 2026 14:42:58: [8846 MB]  47000000 reads parsed 
-INFO  @ 14 Jan 2026 14:42:59: [8846 MB]  48000000 reads parsed 
-INFO  @ 14 Jan 2026 14:42:59: [8846 MB]  49000000 reads parsed 
-INFO  @ 14 Jan 2026 14:43:00: [8846 MB]  50000000 reads parsed 
-INFO  @ 14 Jan 2026 14:43:01: [8846 MB]  51000000 reads parsed 
-INFO  @ 14 Jan 2026 14:43:02: [8846 MB]  52000000 reads parsed 
-INFO  @ 14 Jan 2026 14:43:03: [8846 MB]  53000000 reads parsed 
-INFO  @ 14 Jan 2026 14:43:04: [8846 MB]  54000000 reads parsed 
-INFO  @ 14 Jan 2026 14:43:05: [8846 MB]  55000000 reads parsed 
-INFO  @ 14 Jan 2026 14:43:05: [8846 MB]  56000000 reads parsed 
-INFO  @ 14 Jan 2026 14:43:06: [8846 MB]  57000000 reads parsed 
-INFO  @ 14 Jan 2026 14:43:07: [8846 MB]  58000000 reads parsed 
-INFO  @ 14 Jan 2026 14:43:08: [8846 MB]  59000000 reads parsed 
-INFO  @ 14 Jan 2026 14:43:09: [8846 MB]  60000000 reads parsed 
-INFO  @ 14 Jan 2026 14:43:10: [8846 MB]  61000000 reads parsed 
-INFO  @ 14 Jan 2026 14:43:10: [8846 MB]  62000000 reads parsed 
-INFO  @ 14 Jan 2026 14:43:11: [8846 MB] #1 tag size is determined as 148 bps 
-INFO  @ 14 Jan 2026 14:43:11: [8846 MB] #1 tag size = 148.0 
-INFO  @ 14 Jan 2026 14:43:11: [8846 MB] #1  total tags in treatment: 62760129 
-INFO  @ 14 Jan 2026 14:43:11: [8846 MB] #1 user defined the maximum tags... 
-INFO  @ 14 Jan 2026 14:43:11: [8846 MB] #1 filter out redundant tags at the same location and the same strand by allowing at most 1 tag(s) 
-INFO  @ 14 Jan 2026 14:43:11: [8846 MB] #1  tags after filtering in treatment: 55627954 
-INFO  @ 14 Jan 2026 14:43:11: [8846 MB] #1  Redundant rate of treatment: 0.11 
-INFO  @ 14 Jan 2026 14:43:11: [8846 MB] #1 finished! 
-INFO  @ 14 Jan 2026 14:43:11: [8846 MB] #2 Build Peak Model... 
-INFO  @ 14 Jan 2026 14:43:11: [8846 MB] #2 Skipped... 
-INFO  @ 14 Jan 2026 14:43:11: [8846 MB] #2 Use 200 as fragment length 
-INFO  @ 14 Jan 2026 14:43:11: [8846 MB] #2 Sequencing ends will be shifted towards 5' by 100 bp(s) 
-INFO  @ 14 Jan 2026 14:43:11: [8846 MB] #3 Call peaks... 
-INFO  @ 14 Jan 2026 14:43:11: [8846 MB] #3 Pre-compute pvalue-qvalue table... 
-INFO  @ 14 Jan 2026 14:44:25: [8846 MB] #3 Call peaks for each chromosome... 
-INFO  @ 14 Jan 2026 14:45:02: [8846 MB] #4 Write output xls file... ./data/raw/macs-peaks/JM97-D2-CTRL_peaks.xls 
-INFO  @ 14 Jan 2026 14:45:03: [8846 MB] #4 Write peak in narrowPeak format file... ./data/raw/macs-peaks/JM97-D2-CTRL_peaks.narrowPeak 
-INFO  @ 14 Jan 2026 14:45:03: [8846 MB] #4 Write summits bed file... ./data/raw/macs-peaks/JM97-D2-CTRL_summits.bed 
-INFO  @ 14 Jan 2026 14:45:03: [8846 MB] Done! 
-Extracting reads overlapping genomic regions
-INFO  @ 14 Jan 2026 14:45:13: [8846 MB] 
-# Command line: callpeak -t /sc/arion/projects/naiklab/Alex/Jack-Multiome/2026-01-07-Analysis/scmultiome-pipeline/data/raw/JM97-D2-IMQ/fragments.tsv.gz -g 2.7e+09 -f BED --nomodel --extsize 200 --shift -100 -n JM97-D2-IMQ --outdir ./data/raw/macs-peaks
-# ARGUMENTS LIST:
-# name = JM97-D2-IMQ
-# format = BED
-# ChIP-seq file = ['/sc/arion/projects/naiklab/Alex/Jack-Multiome/2026-01-07-Analysis/scmultiome-pipeline/data/raw/JM97-D2-IMQ/fragments.tsv.gz']
-# control file = None
-# effective genome size = 2.70e+09
-# band width = 300
-# model fold = [5, 50]
-# qvalue cutoff = 5.00e-02
-# The maximum gap between significant sites is assigned as the read length/tag size.
-# The minimum length of peaks is assigned as the predicted fragment length "d".
-# Larger dataset will be scaled towards smaller dataset.
-# Range for calculating regional lambda is: 10000 bps
-# Broad region calling is off
-# Paired-End mode is off
- 
-INFO  @ 14 Jan 2026 14:45:13: [8846 MB] #1 read tag files... 
-INFO  @ 14 Jan 2026 14:45:13: [8846 MB] #1 read treatment tags... 
-INFO  @ 14 Jan 2026 14:45:15: [8846 MB]  1000000 reads parsed 
-INFO  @ 14 Jan 2026 14:45:15: [8846 MB]  2000000 reads parsed 
-INFO  @ 14 Jan 2026 14:45:16: [8846 MB]  3000000 reads parsed 
-INFO  @ 14 Jan 2026 14:45:17: [8846 MB]  4000000 reads parsed 
-INFO  @ 14 Jan 2026 14:45:18: [8846 MB]  5000000 reads parsed 
-INFO  @ 14 Jan 2026 14:45:19: [8846 MB]  6000000 reads parsed 
-INFO  @ 14 Jan 2026 14:45:20: [8846 MB]  7000000 reads parsed 
-INFO  @ 14 Jan 2026 14:45:21: [8846 MB]  8000000 reads parsed 
-INFO  @ 14 Jan 2026 14:45:22: [8846 MB]  9000000 reads parsed 
-INFO  @ 14 Jan 2026 14:45:22: [8846 MB]  10000000 reads parsed 
-INFO  @ 14 Jan 2026 14:45:23: [8846 MB]  11000000 reads parsed 
-INFO  @ 14 Jan 2026 14:45:24: [8846 MB]  12000000 reads parsed 
-INFO  @ 14 Jan 2026 14:45:25: [8846 MB]  13000000 reads parsed 
-INFO  @ 14 Jan 2026 14:45:26: [8846 MB]  14000000 reads parsed 
-INFO  @ 14 Jan 2026 14:45:27: [8846 MB]  15000000 reads parsed 
-INFO  @ 14 Jan 2026 14:45:27: [8846 MB]  16000000 reads parsed 
-INFO  @ 14 Jan 2026 14:45:28: [8846 MB]  17000000 reads parsed 
-INFO  @ 14 Jan 2026 14:45:29: [8846 MB]  18000000 reads parsed 
-INFO  @ 14 Jan 2026 14:45:30: [8846 MB]  19000000 reads parsed 
-INFO  @ 14 Jan 2026 14:45:31: [8846 MB]  20000000 reads parsed 
-INFO  @ 14 Jan 2026 14:45:32: [8846 MB]  21000000 reads parsed 
-INFO  @ 14 Jan 2026 14:45:33: [8846 MB]  22000000 reads parsed 
-INFO  @ 14 Jan 2026 14:45:33: [8846 MB]  23000000 reads parsed 
-INFO  @ 14 Jan 2026 14:45:34: [8846 MB]  24000000 reads parsed 
-INFO  @ 14 Jan 2026 14:45:35: [8846 MB]  25000000 reads parsed 
-INFO  @ 14 Jan 2026 14:45:36: [8846 MB]  26000000 reads parsed 
-INFO  @ 14 Jan 2026 14:45:37: [8846 MB]  27000000 reads parsed 
-INFO  @ 14 Jan 2026 14:45:38: [8846 MB]  28000000 reads parsed 
-INFO  @ 14 Jan 2026 14:45:39: [8846 MB]  29000000 reads parsed 
-INFO  @ 14 Jan 2026 14:45:39: [8846 MB]  30000000 reads parsed 
-INFO  @ 14 Jan 2026 14:45:40: [8846 MB]  31000000 reads parsed 
-INFO  @ 14 Jan 2026 14:45:41: [8846 MB]  32000000 reads parsed 
-INFO  @ 14 Jan 2026 14:45:42: [8846 MB]  33000000 reads parsed 
-INFO  @ 14 Jan 2026 14:45:43: [8846 MB]  34000000 reads parsed 
-INFO  @ 14 Jan 2026 14:45:44: [8846 MB]  35000000 reads parsed 
-INFO  @ 14 Jan 2026 14:45:45: [8846 MB]  36000000 reads parsed 
-INFO  @ 14 Jan 2026 14:45:45: [8846 MB]  37000000 reads parsed 
-INFO  @ 14 Jan 2026 14:45:46: [8846 MB]  38000000 reads parsed 
-INFO  @ 14 Jan 2026 14:45:47: [8846 MB]  39000000 reads parsed 
-INFO  @ 14 Jan 2026 14:45:48: [8846 MB]  40000000 reads parsed 
-INFO  @ 14 Jan 2026 14:45:49: [8846 MB]  41000000 reads parsed 
-INFO  @ 14 Jan 2026 14:45:50: [8846 MB]  42000000 reads parsed 
-INFO  @ 14 Jan 2026 14:45:51: [8846 MB]  43000000 reads parsed 
-INFO  @ 14 Jan 2026 14:45:51: [8846 MB]  44000000 reads parsed 
-INFO  @ 14 Jan 2026 14:45:52: [8846 MB]  45000000 reads parsed 
-INFO  @ 14 Jan 2026 14:45:53: [8846 MB]  46000000 reads parsed 
-INFO  @ 14 Jan 2026 14:45:54: [8846 MB]  47000000 reads parsed 
-INFO  @ 14 Jan 2026 14:45:55: [8846 MB]  48000000 reads parsed 
-INFO  @ 14 Jan 2026 14:45:56: [8846 MB]  49000000 reads parsed 
-INFO  @ 14 Jan 2026 14:45:57: [8846 MB]  50000000 reads parsed 
-INFO  @ 14 Jan 2026 14:45:58: [8846 MB]  51000000 reads parsed 
-INFO  @ 14 Jan 2026 14:45:58: [8846 MB]  52000000 reads parsed 
-INFO  @ 14 Jan 2026 14:45:59: [8846 MB]  53000000 reads parsed 
-INFO  @ 14 Jan 2026 14:46:00: [8846 MB]  54000000 reads parsed 
-INFO  @ 14 Jan 2026 14:46:01: [8846 MB]  55000000 reads parsed 
-INFO  @ 14 Jan 2026 14:46:02: [8846 MB]  56000000 reads parsed 
-INFO  @ 14 Jan 2026 14:46:03: [8846 MB]  57000000 reads parsed 
-INFO  @ 14 Jan 2026 14:46:04: [8846 MB]  58000000 reads parsed 
-INFO  @ 14 Jan 2026 14:46:04: [8846 MB]  59000000 reads parsed 
-INFO  @ 14 Jan 2026 14:46:05: [8846 MB]  60000000 reads parsed 
-INFO  @ 14 Jan 2026 14:46:06: [8846 MB]  61000000 reads parsed 
-INFO  @ 14 Jan 2026 14:46:07: [8846 MB]  62000000 reads parsed 
-INFO  @ 14 Jan 2026 14:46:08: [8846 MB]  63000000 reads parsed 
-INFO  @ 14 Jan 2026 14:46:09: [8846 MB]  64000000 reads parsed 
-INFO  @ 14 Jan 2026 14:46:10: [8846 MB]  65000000 reads parsed 
-INFO  @ 14 Jan 2026 14:46:10: [8846 MB]  66000000 reads parsed 
-INFO  @ 14 Jan 2026 14:46:11: [8846 MB]  67000000 reads parsed 
-INFO  @ 14 Jan 2026 14:46:12: [8846 MB]  68000000 reads parsed 
-INFO  @ 14 Jan 2026 14:46:13: [8846 MB]  69000000 reads parsed 
-INFO  @ 14 Jan 2026 14:46:14: [8846 MB]  70000000 reads parsed 
-INFO  @ 14 Jan 2026 14:46:15: [8846 MB]  71000000 reads parsed 
-INFO  @ 14 Jan 2026 14:46:16: [8846 MB]  72000000 reads parsed 
-INFO  @ 14 Jan 2026 14:46:16: [8846 MB]  73000000 reads parsed 
-INFO  @ 14 Jan 2026 14:46:17: [8846 MB]  74000000 reads parsed 
-INFO  @ 14 Jan 2026 14:46:18: [8846 MB]  75000000 reads parsed 
-INFO  @ 14 Jan 2026 14:46:19: [8846 MB]  76000000 reads parsed 
-INFO  @ 14 Jan 2026 14:46:20: [8846 MB]  77000000 reads parsed 
-INFO  @ 14 Jan 2026 14:46:21: [8846 MB]  78000000 reads parsed 
-INFO  @ 14 Jan 2026 14:46:22: [8846 MB]  79000000 reads parsed 
-INFO  @ 14 Jan 2026 14:46:22: [8846 MB]  80000000 reads parsed 
-INFO  @ 14 Jan 2026 14:46:23: [8846 MB]  81000000 reads parsed 
-INFO  @ 14 Jan 2026 14:46:24: [8846 MB]  82000000 reads parsed 
-INFO  @ 14 Jan 2026 14:46:25: [8846 MB]  83000000 reads parsed 
-INFO  @ 14 Jan 2026 14:46:26: [8846 MB]  84000000 reads parsed 
-INFO  @ 14 Jan 2026 14:46:27: [8846 MB]  85000000 reads parsed 
-INFO  @ 14 Jan 2026 14:46:28: [8846 MB]  86000000 reads parsed 
-INFO  @ 14 Jan 2026 14:46:28: [8846 MB]  87000000 reads parsed 
-INFO  @ 14 Jan 2026 14:46:29: [8846 MB]  88000000 reads parsed 
-INFO  @ 14 Jan 2026 14:46:30: [8846 MB]  89000000 reads parsed 
-INFO  @ 14 Jan 2026 14:46:31: [8846 MB]  90000000 reads parsed 
-INFO  @ 14 Jan 2026 14:46:32: [8846 MB]  91000000 reads parsed 
-INFO  @ 14 Jan 2026 14:46:33: [8846 MB]  92000000 reads parsed 
-INFO  @ 14 Jan 2026 14:46:34: [8846 MB]  93000000 reads parsed 
-INFO  @ 14 Jan 2026 14:46:34: [8846 MB]  94000000 reads parsed 
-INFO  @ 14 Jan 2026 14:46:35: [8846 MB]  95000000 reads parsed 
-INFO  @ 14 Jan 2026 14:46:36: [8846 MB]  96000000 reads parsed 
-INFO  @ 14 Jan 2026 14:46:37: [8846 MB]  97000000 reads parsed 
-INFO  @ 14 Jan 2026 14:46:38: [8846 MB]  98000000 reads parsed 
-INFO  @ 14 Jan 2026 14:46:39: [8846 MB]  99000000 reads parsed 
-INFO  @ 14 Jan 2026 14:46:40: [8846 MB]  100000000 reads parsed 
-INFO  @ 14 Jan 2026 14:46:40: [8846 MB]  101000000 reads parsed 
-INFO  @ 14 Jan 2026 14:46:41: [8846 MB] #1 tag size is determined as 109 bps 
-INFO  @ 14 Jan 2026 14:46:41: [8846 MB] #1 tag size = 109.0 
-INFO  @ 14 Jan 2026 14:46:41: [8846 MB] #1  total tags in treatment: 101152216 
-INFO  @ 14 Jan 2026 14:46:41: [8846 MB] #1 user defined the maximum tags... 
-INFO  @ 14 Jan 2026 14:46:41: [8846 MB] #1 filter out redundant tags at the same location and the same strand by allowing at most 1 tag(s) 
-INFO  @ 14 Jan 2026 14:46:41: [8846 MB] #1  tags after filtering in treatment: 83826832 
-INFO  @ 14 Jan 2026 14:46:41: [8846 MB] #1  Redundant rate of treatment: 0.17 
-INFO  @ 14 Jan 2026 14:46:41: [8846 MB] #1 finished! 
-INFO  @ 14 Jan 2026 14:46:41: [8846 MB] #2 Build Peak Model... 
-INFO  @ 14 Jan 2026 14:46:41: [8846 MB] #2 Skipped... 
-INFO  @ 14 Jan 2026 14:46:41: [8846 MB] #2 Use 200 as fragment length 
-INFO  @ 14 Jan 2026 14:46:41: [8846 MB] #2 Sequencing ends will be shifted towards 5' by 100 bp(s) 
-INFO  @ 14 Jan 2026 14:46:41: [8846 MB] #3 Call peaks... 
-INFO  @ 14 Jan 2026 14:46:41: [8846 MB] #3 Pre-compute pvalue-qvalue table... 
-INFO  @ 14 Jan 2026 14:48:35: [8846 MB] #3 Call peaks for each chromosome... 
-INFO  @ 14 Jan 2026 14:49:36: [8846 MB] #4 Write output xls file... ./data/raw/macs-peaks/JM97-D2-IMQ_peaks.xls 
-INFO  @ 14 Jan 2026 14:49:36: [8846 MB] #4 Write peak in narrowPeak format file... ./data/raw/macs-peaks/JM97-D2-IMQ_peaks.narrowPeak 
-INFO  @ 14 Jan 2026 14:49:36: [8846 MB] #4 Write summits bed file... ./data/raw/macs-peaks/JM97-D2-IMQ_summits.bed 
-INFO  @ 14 Jan 2026 14:49:37: [8846 MB] Done! 
-Extracting reads overlapping genomic regions
-INFO  @ 14 Jan 2026 14:49:55: [8846 MB] 
-# Command line: callpeak -t /sc/arion/projects/naiklab/Alex/Jack-Multiome/2026-01-07-Analysis/scmultiome-pipeline/data/raw/JM112-D30-CTRL-1/fragments.tsv.gz -g 2.7e+09 -f BED --nomodel --extsize 200 --shift -100 -n JM112-D30-CTRL-1 --outdir ./data/raw/macs-peaks
-# ARGUMENTS LIST:
-# name = JM112-D30-CTRL-1
-# format = BED
-# ChIP-seq file = ['/sc/arion/projects/naiklab/Alex/Jack-Multiome/2026-01-07-Analysis/scmultiome-pipeline/data/raw/JM112-D30-CTRL-1/fragments.tsv.gz']
-# control file = None
-# effective genome size = 2.70e+09
-# band width = 300
-# model fold = [5, 50]
-# qvalue cutoff = 5.00e-02
-# The maximum gap between significant sites is assigned as the read length/tag size.
-# The minimum length of peaks is assigned as the predicted fragment length "d".
-# Larger dataset will be scaled towards smaller dataset.
-# Range for calculating regional lambda is: 10000 bps
-# Broad region calling is off
-# Paired-End mode is off
- 
-INFO  @ 14 Jan 2026 14:49:55: [8846 MB] #1 read tag files... 
-INFO  @ 14 Jan 2026 14:49:55: [8846 MB] #1 read treatment tags... 
-INFO  @ 14 Jan 2026 14:49:56: [8846 MB]  1000000 reads parsed 
-INFO  @ 14 Jan 2026 14:49:57: [8846 MB]  2000000 reads parsed 
-INFO  @ 14 Jan 2026 14:49:58: [8846 MB]  3000000 reads parsed 
-INFO  @ 14 Jan 2026 14:49:59: [8846 MB]  4000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:00: [8846 MB]  5000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:01: [8846 MB]  6000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:02: [8846 MB]  7000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:03: [8846 MB]  8000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:03: [8846 MB]  9000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:04: [8846 MB]  10000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:05: [8846 MB]  11000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:06: [8846 MB]  12000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:07: [8846 MB]  13000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:08: [8846 MB]  14000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:09: [8846 MB]  15000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:09: [8846 MB]  16000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:10: [8846 MB]  17000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:11: [8846 MB]  18000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:12: [8846 MB]  19000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:13: [8846 MB]  20000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:14: [8846 MB]  21000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:15: [8846 MB]  22000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:15: [8846 MB]  23000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:16: [8846 MB]  24000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:17: [8846 MB]  25000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:18: [8846 MB]  26000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:19: [8846 MB]  27000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:20: [8846 MB]  28000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:21: [8846 MB]  29000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:22: [8846 MB]  30000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:22: [8846 MB]  31000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:23: [8846 MB]  32000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:24: [8846 MB]  33000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:25: [8846 MB]  34000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:26: [8846 MB]  35000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:27: [8846 MB]  36000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:28: [8846 MB]  37000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:28: [8846 MB]  38000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:29: [8846 MB]  39000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:30: [8846 MB]  40000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:31: [8846 MB]  41000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:32: [8846 MB]  42000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:33: [8846 MB]  43000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:34: [8846 MB]  44000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:35: [8846 MB]  45000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:35: [8846 MB]  46000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:36: [8846 MB]  47000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:37: [8846 MB]  48000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:38: [8846 MB]  49000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:39: [8846 MB]  50000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:40: [8846 MB]  51000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:41: [8846 MB]  52000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:41: [8846 MB]  53000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:42: [8846 MB]  54000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:43: [8846 MB]  55000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:44: [8846 MB]  56000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:45: [8846 MB]  57000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:46: [8846 MB]  58000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:47: [8846 MB]  59000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:47: [8846 MB]  60000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:48: [8846 MB]  61000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:49: [8846 MB]  62000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:50: [8846 MB]  63000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:51: [8846 MB]  64000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:52: [8846 MB]  65000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:53: [8846 MB]  66000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:53: [8846 MB]  67000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:54: [8846 MB]  68000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:55: [8846 MB]  69000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:56: [8846 MB]  70000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:57: [8846 MB]  71000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:58: [8846 MB]  72000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:59: [8846 MB]  73000000 reads parsed 
-INFO  @ 14 Jan 2026 14:50:59: [8846 MB]  74000000 reads parsed 
-INFO  @ 14 Jan 2026 14:51:00: [8846 MB]  75000000 reads parsed 
-INFO  @ 14 Jan 2026 14:51:01: [8846 MB]  76000000 reads parsed 
-INFO  @ 14 Jan 2026 14:51:02: [8846 MB]  77000000 reads parsed 
-INFO  @ 14 Jan 2026 14:51:03: [8846 MB]  78000000 reads parsed 
-INFO  @ 14 Jan 2026 14:51:04: [8846 MB]  79000000 reads parsed 
-INFO  @ 14 Jan 2026 14:51:05: [8846 MB]  80000000 reads parsed 
-INFO  @ 14 Jan 2026 14:51:05: [8846 MB]  81000000 reads parsed 
-INFO  @ 14 Jan 2026 14:51:06: [8846 MB]  82000000 reads parsed 
-INFO  @ 14 Jan 2026 14:51:07: [8846 MB]  83000000 reads parsed 
-INFO  @ 14 Jan 2026 14:51:08: [8846 MB]  84000000 reads parsed 
-INFO  @ 14 Jan 2026 14:51:09: [8846 MB]  85000000 reads parsed 
-INFO  @ 14 Jan 2026 14:51:10: [8846 MB]  86000000 reads parsed 
-INFO  @ 14 Jan 2026 14:51:10: [8846 MB]  87000000 reads parsed 
-INFO  @ 14 Jan 2026 14:51:11: [8846 MB]  88000000 reads parsed 
-INFO  @ 14 Jan 2026 14:51:12: [8846 MB]  89000000 reads parsed 
-INFO  @ 14 Jan 2026 14:51:13: [8846 MB]  90000000 reads parsed 
-INFO  @ 14 Jan 2026 14:51:14: [8846 MB]  91000000 reads parsed 
-INFO  @ 14 Jan 2026 14:51:15: [8846 MB]  92000000 reads parsed 
-INFO  @ 14 Jan 2026 14:51:16: [8846 MB]  93000000 reads parsed 
-INFO  @ 14 Jan 2026 14:51:16: [8846 MB]  94000000 reads parsed 
-INFO  @ 14 Jan 2026 14:51:17: [8846 MB]  95000000 reads parsed 
-INFO  @ 14 Jan 2026 14:51:18: [8846 MB]  96000000 reads parsed 
-INFO  @ 14 Jan 2026 14:51:19: [8846 MB]  97000000 reads parsed 
-INFO  @ 14 Jan 2026 14:51:20: [8846 MB]  98000000 reads parsed 
-INFO  @ 14 Jan 2026 14:51:21: [8846 MB]  99000000 reads parsed 
-INFO  @ 14 Jan 2026 14:51:22: [8846 MB]  100000000 reads parsed 
-INFO  @ 14 Jan 2026 14:51:22: [8846 MB]  101000000 reads parsed 
-INFO  @ 14 Jan 2026 14:51:23: [8846 MB]  102000000 reads parsed 
-INFO  @ 14 Jan 2026 14:51:24: [8846 MB]  103000000 reads parsed 
-INFO  @ 14 Jan 2026 14:51:25: [8846 MB]  104000000 reads parsed 
-INFO  @ 14 Jan 2026 14:51:26: [8846 MB] #1 tag size is determined as 132 bps 
-INFO  @ 14 Jan 2026 14:51:26: [8846 MB] #1 tag size = 132.0 
-INFO  @ 14 Jan 2026 14:51:26: [8846 MB] #1  total tags in treatment: 104853313 
-INFO  @ 14 Jan 2026 14:51:26: [8846 MB] #1 user defined the maximum tags... 
-INFO  @ 14 Jan 2026 14:51:26: [8846 MB] #1 filter out redundant tags at the same location and the same strand by allowing at most 1 tag(s) 
-INFO  @ 14 Jan 2026 14:51:26: [8846 MB] #1  tags after filtering in treatment: 88037508 
-INFO  @ 14 Jan 2026 14:51:26: [8846 MB] #1  Redundant rate of treatment: 0.16 
-INFO  @ 14 Jan 2026 14:51:26: [8846 MB] #1 finished! 
-INFO  @ 14 Jan 2026 14:51:26: [8846 MB] #2 Build Peak Model... 
-INFO  @ 14 Jan 2026 14:51:26: [8846 MB] #2 Skipped... 
-INFO  @ 14 Jan 2026 14:51:26: [8846 MB] #2 Use 200 as fragment length 
-INFO  @ 14 Jan 2026 14:51:26: [8846 MB] #2 Sequencing ends will be shifted towards 5' by 100 bp(s) 
-INFO  @ 14 Jan 2026 14:51:26: [8846 MB] #3 Call peaks... 
-INFO  @ 14 Jan 2026 14:51:26: [8846 MB] #3 Pre-compute pvalue-qvalue table... 
-User interrupted me! ;-) Bye!
-Error in file(file, "rt") : cannot open the connection
-Calls: lapply ... CallPeaks -> CallPeaks.default -> read.table -> file
-In addition: Warning messages:
-1: In .merge_two_Seqinfo_objects(x, y) :
-  The 2 combined objects have no sequence levels in common. (Use
-  suppressWarnings() to suppress this warning.)
-2: In .merge_two_Seqinfo_objects(x, y) :
-  The 2 combined objects have no sequence levels in common. (Use
-  suppressWarnings() to suppress this warning.)
-3: In .merge_two_Seqinfo_objects(x, y) :
-  The 2 combined objects have no sequence levels in common. (Use
-  suppressWarnings() to suppress this warning.)
-4: In .merge_two_Seqinfo_objects(x, y) :
-  The 2 combined objects have no sequence levels in common. (Use
-  suppressWarnings() to suppress this warning.)
-5: In .merge_two_Seqinfo_objects(x, y) :
-  The 2 combined objects have no sequence levels in common. (Use
-  suppressWarnings() to suppress this warning.)
-6: In file(file, "rt") :
-  cannot open file './data/raw/macs-peaks/JM112-D30-CTRL-1_peaks.narrowPeak': No such file or directory
-Execution halted
