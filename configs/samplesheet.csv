@@ -1,0 +1,10 @@
+SampleID,path,Treatment,Condition,Treatment_Condition,Sequencing_Date,Institution
+JM85-D6-CTRL,/sc/arion/projects/naiklab/shared/raw-sequencing-data/2025-03-20-Jack-SingleCell-Multiome/MouseDRGN/cellranger_output/SHNA02_JM85CTRL_0_v1,CTRL,CTRL,CTRL_D6,2025_03_20,Sinai
+JM85-D6-IMQ,/sc/arion/projects/naiklab/shared/raw-sequencing-data/2025-03-20-Jack-SingleCell-Multiome/MouseDRGN/cellranger_output/SHNA02_JM85D30IMQ_0_v1,IMQ,D6,IMQ_D6,2025_03_20,Sinai
+JM50-D6-IMQ,/sc/arion/projects/naiklab/shared/raw-sequencing-data/2024-05-30-Jack-SC-Multiome/cellranger/count-IMQ/outs,IMQ,D6,IMQ_D6,2024_05_30,NYU
+JM97-D2-CTRL,/sc/arion/projects/naiklab/shared/raw-sequencing-data/2025-09-19-Jack-SC-Multiome/JM97/cellranger_output/SHNA02_JM97-CTRL_0_v1,CTRL,CTRL,CTRL_D2,2025_09_19,Sinai
+JM97-D2-IMQ,/sc/arion/projects/naiklab/shared/raw-sequencing-data/2025-09-19-Jack-SC-Multiome/JM97/cellranger_output/SHNA02_JM97-D2-IMQ_0_v1,IMQ,D2,IMQ_D2,2025_09_19,Sinai
+JM112-D30-CTRL-1,/sc/arion/projects/naiklab/shared/raw-sequencing-data/2026-01-07-Jack-SC-Multiome/JM112/cellranger_output/SHNA02_JM112D30Ctrl_1_v1,CTRL,CTRL,CTRL_D30,2026_01_07,Sinai
+JM112-D30-CTRL-2,/sc/arion/projects/naiklab/shared/raw-sequencing-data/2026-01-07-Jack-SC-Multiome/JM112/cellranger_output/SHNA02_JM112D30Ctrl_2_v1,CTRL,CTRL,CTRL_D30,2026_01_07,Sinai
+JM112-D30-IMQ-1,/sc/arion/projects/naiklab/shared/raw-sequencing-data/2026-01-07-Jack-SC-Multiome/JM112/cellranger_output/SHNA02_JM112D30IMQ_1_v1,IMQ,D30,IMQ_D30,2026_01_07,Sinai
+JM112-D30-IMQ-2,/sc/arion/projects/naiklab/shared/raw-sequencing-data/2026-01-07-Jack-SC-Multiome/JM112/cellranger_output/SHNA02_JM112D30IMQ_2_v1,IMQ,D30,IMQ_D30,2026_01_07,Sinai

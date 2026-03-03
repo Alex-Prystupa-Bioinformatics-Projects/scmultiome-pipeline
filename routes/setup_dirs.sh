@@ -19,11 +19,14 @@ mkdir -p data/raw \
          output/tables \
          configs
 
-# 2. Initialize samplesheet with required column headers
+# 2. Ensure all pipeline scripts are executable
+chmod +x routes/*.sh run/runmultiome
+
+# 3. Initialize samplesheet with required column headers
 #    Add one row per sample: SampleID, path, plus any metadata columns
 echo "SampleID,path" > configs/samplesheet.csv
 
-# 3. Remind user to configure pipeline_config.yml before running
+# 4. Remind user to configure pipeline_config.yml before running
 echo "Edit configs/pipeline_config.yml to set your species and genome before running."
 
 echo "Project directory structure initialized."
