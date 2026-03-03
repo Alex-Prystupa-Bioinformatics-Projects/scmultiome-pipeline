@@ -47,6 +47,12 @@ fi
 #    its own OS minor version.
 export RENV_PATHS_LIBRARY="$(pwd)/renv/library/$(cat .renv_platform)"
 
+# DEBUG — remove after confirming renv path is correct on compute node
+echo "DEBUG pwd: $(pwd)"
+echo "DEBUG .renv_platform contents: $(cat .renv_platform 2>/dev/null || echo 'FILE NOT FOUND')"
+echo "DEBUG RENV_PATHS_LIBRARY: $RENV_PATHS_LIBRARY"
+echo "DEBUG renv at that path: $(ls $RENV_PATHS_LIBRARY/renv 2>/dev/null && echo YES || echo NO)"
+
 # 3. Step 1: Initialize raw data directories from samplesheet
 echo "[Step 1/4] Initializing raw data directories..."
 Rscript scripts/01_init.R \
