@@ -17,3 +17,16 @@ scripts/outs/
 output/RDS-files/
 data/raw/
 data/scenicplus/
+
+# Legacy scripts (kept locally, not tracked on GitHub)
+scripts/multiome-processing.R
+scripts/plotting-UCD-and-seurat.R
+scripts/density-scatter-function.R
+scripts/convert_seruat_to_h5ad.R
+scripts/convert_seurat_to_h5ad.R
+scripts/label_celltypes.R
+scripts/install.R
+scripts/ucd-script.py
+scripts/reformat_anndata.py
+scripts/export_scenicplus_data.R
+scripts/scenicplus-pipeline.py
