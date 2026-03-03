@@ -30,8 +30,3 @@ echo "SampleID,path" > configs/samplesheet.csv
 echo "Edit configs/pipeline_config.yml to set your species and genome before running."
 
 echo "Project directory structure initialized."
-echo ""
-echo "Next steps:"
-echo "  1. Fill in configs/samplesheet.csv with your samples"
-echo "  2. Edit configs/pipeline_config.yml with your species/genome settings"
-echo "  3. Run: run/runmultiome preprocess"

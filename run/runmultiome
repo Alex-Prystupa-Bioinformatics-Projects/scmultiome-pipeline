@@ -75,6 +75,11 @@ init() {
     Rscript -e "renv::install('renv'); renv::restore()" && \
         Rscript --no-init-file -e "cat(renv:::renv_platform_prefix())" > .renv_platform
     echo "R environment restored."
+    echo ""
+    echo "Next steps:"
+    echo "  1. Fill in configs/samplesheet.csv with your samples"
+    echo "  2. Edit configs/pipeline_config.yml with your species/genome settings"
+    echo "  3. Run: run/runmultiome preprocess"
 }
 
 # Phase 1: full preprocessing pipeline (steps 1-4)
