@@ -27,20 +27,38 @@ else
     echo "No scheduler set, assuming modules already loaded."
 fi
 
-# 2. Step 1: Initialize raw data directories from samplesheet
+# 2. Set renv library path explicitly to avoid platform mismatch errors.
+#
+#    Background: renv organizes its package library by OS + R version, e.g.:
+#      renv/library/linux-rocky-9.7/R-4.4/x86_64-pc-linux-gnu
+#
+#    On Minerva, login nodes and compute nodes run slightly different OS minor
+#    versions (e.g. rocky-9.7 vs rocky-9.6). renv detects the platform at
+#    runtime, so if the compute node returns a different string than what was
+#    used when renv::restore() was run on the login node, renv cannot find its
+#    library and tries to re-bootstrap from the internet — which fails because
+#    compute nodes have no outbound internet access.
+#
+#    Fix: dynamically resolve the platform prefix on the compute node itself
+#    (using --no-init-file to bypass .Rprofile) and set RENV_PATHS_LIBRARY to
+#    the exact path. This guarantees renv always finds the correct library
+#    regardless of which OS minor version the compute node is running.
+export RENV_PATHS_LIBRARY="$(pwd)/renv/library/$(Rscript --no-init-file -e 'cat(renv:::renv_platform_prefix())')"
+
+# 3. Step 1: Initialize raw data directories from samplesheet
 echo "[Step 1/4] Initializing raw data directories..."
 Rscript scripts/01_init.R \
     configs/samplesheet.csv \
     --pipeline_config configs/pipeline_config.yml
 
-# 3. Step 2: Create Seurat objects, compute QC metrics, detect doublets
+# 4. Step 2: Create Seurat objects, compute QC metrics, detect doublets
 echo "[Step 2/4] Creating Seurat objects..."
 Rscript scripts/02_create.R \
     configs/samplesheet.csv \
     --pipeline_config configs/pipeline_config.yml \
     --project_prefix  $project_prefix
 
-# 4. Step 3: Call peaks with MACS2
+# 5. Step 3: Call peaks with MACS2
 echo "[Step 3/4] Calling peaks with MACS2..."
 Rscript scripts/03_callpeaks.R \
     configs/samplesheet.csv \
@@ -49,7 +67,7 @@ Rscript scripts/03_callpeaks.R \
     --RDS_file_in     output/RDS-files/${project_prefix}-02-create-obj-list.RDS \
     --macs_path       $my_macs_path
 
-# 5. Step 4: Generate QC plots and write qc_config.yml
+# 6. Step 4: Generate QC plots and write qc_config.yml
 echo "[Step 4/4] Generating QC plots..."
 Rscript scripts/04_qc.R \
     configs/samplesheet.csv \
