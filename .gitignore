@@ -25,6 +25,9 @@ output/RDS-files/
 data/raw/
 data/scenicplus/
 
+# R Markdown notebooks (local reference only)
+*.Rmd
+
 # Legacy scripts (kept locally, not tracked on GitHub)
 scripts/multiome-processing.R
 scripts/plotting-UCD-and-seurat.R
