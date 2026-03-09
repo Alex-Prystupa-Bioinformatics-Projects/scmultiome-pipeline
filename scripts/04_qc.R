@@ -33,6 +33,7 @@ library(yaml,      quietly = TRUE)
 library(Seurat,    quietly = TRUE)
 library(Signac,    quietly = TRUE)
 library(dplyr,     quietly = TRUE)
+library(ggplot2,    quietly = TRUE)
 
 # 1. Parse arguments
 p <- arg_parser("Step 4: Generate QC plots and write qc_config.yml")
