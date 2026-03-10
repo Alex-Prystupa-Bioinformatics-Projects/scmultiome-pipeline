@@ -9,8 +9,9 @@
 #   bash run/runmultiome <function_name>
 #
 # Available functions:
-#   init          — set up directory structure for a new project
-#   preprocess    — run steps 1-4 (init → create → callpeaks → qc)
+#   init               — set up directory structure for a new project
+#   preprocess         — run steps 1-4 (init → create → callpeaks → qc)
+#   filter_merge_reduce  — run step 5 (filter) — more steps to be added
 #
 # Example:
 #   bash run/runmultiome preprocess
@@ -93,11 +94,22 @@ preprocess() {
         24:00 24000 12
 }
 
+# Phase 2: filter + preprocess pipeline (step 5+)
+# Runs: filter — future steps (normalize, merge, cluster, umap) will be added
+# Time: 12hrs | Mem: 16GB/core | Cores: 8
+filter_merge_reduce() {
+    echo "Submitting filter + preprocess pipeline (step 5)"
+    submit_job routes/02_filter_merge_reduce.sh \
+        scripts/outs/filter-preprocess-%J.out \
+        scripts/outs/filter-preprocess-%J.err \
+        12:00 16000 8
+}
+
 # Dispatcher — calls the named function passed as argument
 run_multiome() {
     if [ $# -eq 0 ]; then
         echo "Please provide a function name to run."
-        echo "Available: init, preprocess"
+        echo "Available: init, preprocess, filter_merge_reduce"
         exit 1
     fi
     "$1"

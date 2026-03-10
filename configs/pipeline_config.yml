@@ -23,3 +23,13 @@ blacklist: blacklist_mm10
 # ensdb: EnsDb.Hsapiens.v86
 # blacklist: blacklist_hg38_unified
 # -----------------------------------------------
+
+# -----------------------------------------------
+# Batch Correction (Step 7: normalize_reduce)
+# -----------------------------------------------
+# harmony_vars: metadata column(s) to batch correct on using Harmony.
+# Set to "none" to skip batch correction entirely.
+# Common choices: "Institution", "Sequencing_Date", or comma-separated e.g. "Institution,Sequencing_Date"
+# IMPORTANT: Review your QC plots and sample metadata before deciding.
+# If your samples come from multiple institutions or sequencing runs, batch correction is recommended.
+harmony_vars: none

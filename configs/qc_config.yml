@@ -1,0 +1,91 @@
+JM85-D6-CTRL:
+  filters:
+    nFeature_RNA_min: 250.0
+    nFeature_RNA_max: 10000.0
+    nFeature_peaks_min: 200.0
+    nFeature_peaks_max: 25000.0
+    percent.mt: 20.0
+    nucleosome_signal: 2.0
+    TSS.enrichment_min: 2.0
+    nCount_peaks: 50000.0
+JM85-D6-IMQ:
+  filters:
+    nFeature_RNA_min: 250.0
+    nFeature_RNA_max: 10000.0
+    nFeature_peaks_min: 200.0
+    nFeature_peaks_max: 25000.0
+    percent.mt: 20.0
+    nucleosome_signal: 2.0
+    TSS.enrichment_min: 2.0
+    nCount_peaks: 50000.0
+JM50-D6-IMQ:
+  filters:
+    nFeature_RNA_min: 250.0
+    nFeature_RNA_max: 10000.0
+    nFeature_peaks_min: 200.0
+    nFeature_peaks_max: 25000.0
+    percent.mt: 20.0
+    nucleosome_signal: 2.0
+    TSS.enrichment_min: 2.0
+    nCount_peaks: 50000.0
+JM97-D2-CTRL:
+  filters:
+    nFeature_RNA_min: 250.0
+    nFeature_RNA_max: 10000.0
+    nFeature_peaks_min: 200.0
+    nFeature_peaks_max: 25000.0
+    percent.mt: 20.0
+    nucleosome_signal: 2.0
+    TSS.enrichment_min: 2.0
+    nCount_peaks: 50000.0
+JM97-D2-IMQ:
+  filters:
+    nFeature_RNA_min: 250.0
+    nFeature_RNA_max: 10000.0
+    nFeature_peaks_min: 200.0
+    nFeature_peaks_max: 25000.0
+    percent.mt: 20.0
+    nucleosome_signal: 2.0
+    TSS.enrichment_min: 2.0
+    nCount_peaks: 50000.0
+JM112-D30-CTRL-1:
+  filters:
+    nFeature_RNA_min: 250.0
+    nFeature_RNA_max: 10000.0
+    nFeature_peaks_min: 200.0
+    nFeature_peaks_max: 25000.0
+    percent.mt: 20.0
+    nucleosome_signal: 2.0
+    TSS.enrichment_min: 2.0
+    nCount_peaks: 50000.0
+JM112-D30-CTRL-2:
+  filters:
+    nFeature_RNA_min: 250.0
+    nFeature_RNA_max: 10000.0
+    nFeature_peaks_min: 200.0
+    nFeature_peaks_max: 25000.0
+    percent.mt: 20.0
+    nucleosome_signal: 2.0
+    TSS.enrichment_min: 2.0
+    nCount_peaks: 50000.0
+JM112-D30-IMQ-1:
+  filters:
+    nFeature_RNA_min: 250.0
+    nFeature_RNA_max: 10000.0
+    nFeature_peaks_min: 200.0
+    nFeature_peaks_max: 25000.0
+    percent.mt: 20.0
+    nucleosome_signal: 2.0
+    TSS.enrichment_min: 2.0
+    nCount_peaks: 50000.0
+JM112-D30-IMQ-2:
+  filters:
+    nFeature_RNA_min: 250.0
+    nFeature_RNA_max: 10000.0
+    nFeature_peaks_min: 200.0
+    nFeature_peaks_max: 25000.0
+    percent.mt: 20.0
+    nucleosome_signal: 2.0
+    TSS.enrichment_min: 2.0
+    nCount_peaks: 50000.0
+remove_doublets: no
