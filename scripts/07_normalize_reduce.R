@@ -1,18 +1,15 @@
 #!/usr/bin/env Rscript
 # =============================================================================
-# 07_normalize_reduce.R  |  Pipeline Step 7: Normalize, Reduce, Cluster
+# 07_normalize_reduce.R  |  Pipeline Step 7: Dimensionality Reduction + Cluster
 # =============================================================================
-# Takes the merged object from step 6 and runs the full normalization,
-# dimensionality reduction, and clustering pipeline.
+# Takes the merged object from step 6 (which already has SCTransform run
+# per sample and consensus variable features set via SelectIntegrationFeatures)
+# and runs the full dimensionality reduction and clustering pipeline.
 #
-# RNA:  SCTransform (per layer in Seurat v5) → consensus variable features →
-#       JoinLayers → PCA → optional Harmony → UMAP
+# RNA:  JoinLayers → PCA (using pre-set consensus variable features) →
+#       optional Harmony → UMAP
 # ATAC: TF-IDF → FindTopFeatures → SVD/LSI → optional Harmony → UMAP
 # WNN:  FindMultiModalNeighbors → WNN UMAP → multi-resolution FindClusters
-#
-# Consensus variable features: after SCTransform runs per layer (per sample),
-# the intersection of per-layer variable genes is used for PCA to avoid
-# PCA being driven by sample-specific variable genes.
 #
 # Harmony: optional batch correction on PCA + LSI. Pass one or more metadata
 # column names as a comma-separated string via --harmony_vars.
@@ -34,7 +31,7 @@ library(Signac,    quietly = TRUE)
 library(harmony,   quietly = TRUE)
 
 # 1. Parse arguments
-p <- arg_parser("Step 7: Normalize, dimensionality reduction, and clustering")
+p <- arg_parser("Step 7: Dimensionality reduction and clustering")
 p <- add_argument(p, "samplesheet",
                   help = "Path to samplesheet CSV", type = "character")
 p <- add_argument(p, "--pipeline_config",
@@ -76,37 +73,24 @@ source("scripts/functions.R")
 source("scripts/genome_utils.R")
 
 # 4. Load merged object from step 6
-message("Starting Step 7: normalize + reduce")
+#    SCTransform has already been run per sample and consensus variable features
+#    are pre-set via SelectIntegrationFeatures() in step 6
+message("Starting Step 7: reduce + cluster")
 message("Loading: ", argv$RDS_file_in)
 seu_obj <- readRDS(argv$RDS_file_in)
+message("  Consensus variable features loaded: ", length(VariableFeatures(seu_obj)))
 
 # ── RNA ───────────────────────────────────────────────────────────────────────
 
-# 5. SCTransform on merged object
-#    In Seurat v5, runs per layer (per sample) automatically
-message("Running SCTransform (per layer)...")
-DefaultAssay(seu_obj) <- "RNA"
-seu_obj <- SCTransform(seu_obj, verbose = FALSE)
-
-# 6. Compute consensus variable features across layers
-#    Intersect per-layer variable genes so PCA uses only cross-sample variable features
-message("Computing consensus variable features...")
-sct_layers        <- Layers(seu_obj[["SCT"]])
-consensus_var_features <- Reduce(intersect, lapply(sct_layers, function(l) {
-    VariableFeatures(seu_obj[["SCT"]], layer = l)
-}))
-message("  Consensus variable features: ", length(consensus_var_features))
-VariableFeatures(seu_obj[["SCT"]]) <- consensus_var_features
-
-# 7. JoinLayers after SCTransform
+# 5. JoinLayers on RNA before PCA
 message("Joining layers...")
-seu_obj <- JoinLayers(seu_obj)
+seu_obj <- JoinLayers(seu_obj, assay = "RNA")
 
-# 8. PCA using consensus variable features
+# 6. PCA using consensus variable features set in step 6
 message("Running PCA...")
 seu_obj <- RunPCA(seu_obj, npcs = rna_pcs, verbose = FALSE)
 
-# 9. Optional Harmony on PCA (RNA)
+# 7. Optional Harmony on PCA (RNA)
 rna_reduction <- "pca"
 if (run_harmony) {
     message("Running Harmony on RNA (vars: ", paste(harmony_vars, collapse = ", "), ")...")
@@ -124,7 +108,7 @@ if (run_harmony) {
     rna_reduction <- "rna.harmony"
 }
 
-# 10. RNA UMAP
+# 8. RNA UMAP
 message("Running RNA UMAP...")
 seu_obj <- RunUMAP(seu_obj,
                    dims           = 1:rna_pcs,
@@ -135,14 +119,14 @@ seu_obj <- RunUMAP(seu_obj,
 
 # ── ATAC ──────────────────────────────────────────────────────────────────────
 
-# 11. TF-IDF normalization + top features + LSI/SVD
+# 9. TF-IDF normalization + top features + LSI/SVD
 message("Running TF-IDF + SVD (LSI)...")
 DefaultAssay(seu_obj) <- "peaks"
 seu_obj <- RunTFIDF(seu_obj, verbose = FALSE)
 seu_obj <- FindTopFeatures(seu_obj, min.cutoff = "q50", verbose = FALSE)
 seu_obj <- RunSVD(seu_obj, n = atac_pcs, verbose = FALSE)
 
-# 12. Optional Harmony on LSI (ATAC)
+# 10. Optional Harmony on LSI (ATAC)
 #     Exclude first LSI dimension (correlated with sequencing depth)
 atac_reduction <- "lsi"
 atac_dims      <- 2:atac_pcs
@@ -163,7 +147,7 @@ if (run_harmony) {
     atac_dims      <- 1:(atac_pcs - 1)
 }
 
-# 13. ATAC UMAP
+# 11. ATAC UMAP
 message("Running ATAC UMAP...")
 seu_obj <- RunUMAP(seu_obj,
                    dims           = atac_dims,
@@ -174,7 +158,7 @@ seu_obj <- RunUMAP(seu_obj,
 
 # ── WNN ───────────────────────────────────────────────────────────────────────
 
-# 14. WNN graph: combines RNA + ATAC modalities
+# 12. WNN graph: combines RNA + ATAC modalities
 message("Constructing WNN graph...")
 seu_obj <- FindMultiModalNeighbors(
     seu_obj,
@@ -183,7 +167,7 @@ seu_obj <- FindMultiModalNeighbors(
     verbose        = FALSE
 )
 
-# 15. WNN UMAP (joint embedding)
+# 13. WNN UMAP (joint embedding)
 message("Running WNN UMAP...")
 seu_obj <- RunUMAP(seu_obj,
                    nn.name        = "weighted.nn",
@@ -191,7 +175,7 @@ seu_obj <- RunUMAP(seu_obj,
                    reduction.key  = "wnnUMAP_",
                    verbose        = FALSE)
 
-# 16. Multi-resolution clustering on WNN graph
+# 14. Multi-resolution clustering on WNN graph
 message("Running FindClusters at resolutions: ", paste(resolutions, collapse = ", "))
 for (res in resolutions) {
     seu_obj <- FindClusters(seu_obj,
@@ -201,7 +185,7 @@ for (res in resolutions) {
                             verbose    = FALSE)
 }
 
-# 17. Save output
+# 15. Save output
 out_path <- paste0("output/RDS-files/", argv$project_prefix, "-07-normalize-reduce-obj.RDS")
 saveRDS(seu_obj, file = out_path)
 message("Step 7 complete. Saved: ", out_path)
