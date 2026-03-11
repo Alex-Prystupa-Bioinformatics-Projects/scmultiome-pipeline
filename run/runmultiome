@@ -11,7 +11,7 @@
 # Available functions:
 #   init               — set up directory structure for a new project
 #   preprocess         — run steps 1-4 (init → create → callpeaks → qc)
-#   filter_merge_reduce  — run step 5 (filter) — more steps to be added
+#   filter_merge_reduce  — run steps 5-7 (filter → merge → normalize/reduce)
 #
 # Example:
 #   bash run/runmultiome preprocess
@@ -94,14 +94,21 @@ preprocess() {
         24:00 24000 12
 }
 
-# Phase 2: filter + preprocess pipeline (step 5+)
-# Runs: filter — future steps (normalize, merge, cluster, umap) will be added
+# Phase 2: filter, merge, normalize/reduce pipeline (steps 5-7)
+# Steps 5-6 are skipped automatically if the merged RDS already exists.
 # Time: 12hrs | Mem: 16GB/core | Cores: 8
 filter_merge_reduce() {
-    echo "Submitting filter + preprocess pipeline (step 5)"
+    local merge_rds="output/RDS-files/${project_prefix}-06-merge-obj.RDS"
+    if [ -f "$merge_rds" ]; then
+        echo "Merged RDS found — submitting step 7 only (normalize/reduce)"
+        echo "  Skipping: steps 5 (filter) and 6 (merge)"
+        echo "  To force full re-run: rm $merge_rds"
+    else
+        echo "Submitting full pipeline: filter (5) → merge (6) → normalize/reduce (7)"
+    fi
     submit_job routes/02_filter_merge_reduce.sh \
-        scripts/outs/filter-preprocess-%J.out \
-        scripts/outs/filter-preprocess-%J.err \
+        scripts/outs/filter-merge-reduce-%J.out \
+        scripts/outs/filter-merge-reduce-%J.err \
         12:00 16000 8
 }
 

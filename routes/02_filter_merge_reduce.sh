@@ -4,8 +4,9 @@
 # =============================================================================
 # Runs the filter, merge, and normalization pipeline in sequence:
 #   Step 5 (filter)            — applies QC thresholds from qc_config.yml
-#   Step 6 (merge)             — consensus peaks + merge all samples
-#   Step 7 (normalize_reduce)  — SCTransform, LSI, Harmony, WNN, UMAP, clustering
+#   Step 6 (merge)             — consensus peaks + SCTransform per sample +
+#                                SelectIntegrationFeatures + merge
+#   Step 7 (normalize_reduce)  — JoinLayers, PCA, LSI, Harmony, WNN, UMAP, clustering
 #
 # Prerequisites:
 #   1. Run routes/01_preprocess.sh
@@ -34,22 +35,28 @@ fi
 export RENV_PATHS_LIBRARY="$(pwd)/renv/library"
 export RENV_PATHS_PREFIX="$(cut -d'/' -f1 .renv_platform)"
 
-# 3. Step 5: Apply QC filters
-echo "[Step 5/3] Applying QC filters..."
-Rscript scripts/05_filter.R \
-    configs/samplesheet.csv \
-    --pipeline_config configs/pipeline_config.yml \
-    --project_prefix  $project_prefix \
-    --qc_config       configs/qc_config.yml \
-    --RDS_file_in     output/RDS-files/${project_prefix}-03-callpeaks-obj-list.RDS
+# 3. Steps 5-6: Filter and merge (skipped if merged RDS already exists)
+MERGE_RDS="output/RDS-files/${project_prefix}-06-merge-obj.RDS"
 
-# 4. Step 6: Consensus peaks + merge
-echo "[Step 6/3] Building consensus peaks and merging objects..."
-Rscript scripts/06_merge.R \
-    configs/samplesheet.csv \
-    --pipeline_config configs/pipeline_config.yml \
-    --project_prefix  $project_prefix \
-    --RDS_file_in     output/RDS-files/${project_prefix}-05-filter-obj-list.RDS
+if [ -f "$MERGE_RDS" ]; then
+    echo "[Steps 5-6] Skipping — merged RDS already exists: $MERGE_RDS"
+    echo "            Delete it to force a full re-filter/re-merge."
+else
+    echo "[Step 5/3] Applying QC filters..."
+    Rscript scripts/05_filter.R \
+        configs/samplesheet.csv \
+        --pipeline_config configs/pipeline_config.yml \
+        --project_prefix  $project_prefix \
+        --qc_config       configs/qc_config.yml \
+        --RDS_file_in     output/RDS-files/${project_prefix}-03-callpeaks-obj-list.RDS
+
+    echo "[Step 6/3] Building consensus peaks and merging objects..."
+    Rscript scripts/06_merge.R \
+        configs/samplesheet.csv \
+        --pipeline_config configs/pipeline_config.yml \
+        --project_prefix  $project_prefix \
+        --RDS_file_in     output/RDS-files/${project_prefix}-05-filter-obj-list.RDS
+fi
 
 # 5. Step 7: Normalize, dimensionality reduction, clustering
 echo "[Step 7/3] Normalizing, reducing, and clustering..."
