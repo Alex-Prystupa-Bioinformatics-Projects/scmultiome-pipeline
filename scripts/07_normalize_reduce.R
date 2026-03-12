@@ -24,11 +24,13 @@
 # Output: output/RDS-files/{prefix}-07-normalize-reduce-obj.RDS
 # =============================================================================
 
-library(argparser, quietly = TRUE)
-library(yaml,      quietly = TRUE)
-library(Seurat,    quietly = TRUE)
-library(Signac,    quietly = TRUE)
-library(harmony,   quietly = TRUE)
+library(argparser,  quietly = TRUE)
+library(yaml,       quietly = TRUE)
+library(Seurat,     quietly = TRUE)
+library(Signac,     quietly = TRUE)
+library(harmony,    quietly = TRUE)
+library(ggplot2,    quietly = TRUE)
+library(patchwork,  quietly = TRUE)
 
 # 1. Parse arguments
 p <- arg_parser("Step 7: Dimensionality reduction and clustering")
@@ -185,7 +187,82 @@ for (res in resolutions) {
                             verbose    = FALSE)
 }
 
-# 15. Save output
+# ── PLOTS ─────────────────────────────────────────────────────────────────────
+
+# 15. Create output directories for UMAP plots
+plot_dir <- paste0("output/plots/", argv$project_prefix, "-umaps")
+dir.create(file.path(plot_dir, "orig.ident"), recursive = TRUE, showWarnings = FALSE)
+dir.create(file.path(plot_dir, "metadata"),   recursive = TRUE, showWarnings = FALSE)
+dir.create(file.path(plot_dir, "clustering"), recursive = TRUE, showWarnings = FALSE)
+dir.create(file.path(plot_dir, "qc-metrics"), recursive = TRUE, showWarnings = FALSE)
+message("Plot output directory: ", plot_dir)
+
+# 16. Combined 3-panel orig.ident UMAP (RNA + ATAC + WNN)
+message("Generating combined orig.ident UMAP panel...")
+p_rna  <- DimPlot(seu_obj, reduction = "umap.rna",  group.by = "orig.ident", label = FALSE) + ggtitle("RNA UMAP")
+p_atac <- DimPlot(seu_obj, reduction = "umap.atac", group.by = "orig.ident", label = FALSE) + ggtitle("ATAC UMAP")
+p_wnn  <- DimPlot(seu_obj, reduction = "wnn.umap",  group.by = "orig.ident", label = FALSE) + ggtitle("WNN UMAP")
+pdf(file.path(plot_dir, paste0(argv$project_prefix, "-all-reduction-umaps.pdf")), width = 24, height = 8)
+print(p_rna | p_atac | p_wnn)
+dev.off()
+
+# 17. Individual orig.ident UMAPs (RNA, ATAC, WNN)
+message("Generating individual orig.ident UMAPs...")
+modalities <- list(
+    list(name = "rna",  reduction = "umap.rna",  title = "RNA UMAP"),
+    list(name = "atac", reduction = "umap.atac", title = "ATAC UMAP"),
+    list(name = "wnn",  reduction = "wnn.umap",  title = "WNN UMAP")
+)
+for (mod in modalities) {
+    p <- DimPlot(seu_obj, reduction = mod$reduction, group.by = "orig.ident", label = FALSE) +
+        ggtitle(mod$title)
+    pdf(file.path(plot_dir, "orig.ident",
+                  paste0(argv$project_prefix, "-umap-", mod$name, "-orig.ident.pdf")),
+        width = 10, height = 8)
+    print(p)
+    dev.off()
+}
+
+# 18. Metadata UMAPs (WNN UMAP, one per samplesheet metadata column)
+#     ss_cols derived from samplesheet already loaded in step 3
+ss_cols <- setdiff(colnames(samplesheet), c("SampleID", "path"))
+message("Generating metadata UMAPs for: ", paste(ss_cols, collapse = ", "))
+for (col in ss_cols) {
+    p <- DimPlot(seu_obj, reduction = "wnn.umap", group.by = col, label = FALSE) +
+        ggtitle(col)
+    pdf(file.path(plot_dir, "metadata",
+                  paste0(argv$project_prefix, "-umap-wnn-", col, ".pdf")),
+        width = 10, height = 8)
+    print(p)
+    dev.off()
+}
+
+# 19. Clustering UMAPs (WNN UMAP, one per resolution)
+cluster_cols <- paste0("wsnn_res.", resolutions)
+message("Generating clustering UMAPs at resolutions: ", paste(resolutions, collapse = ", "))
+for (i in seq_along(resolutions)) {
+    p <- DimPlot(seu_obj, reduction = "wnn.umap", group.by = cluster_cols[i], label = TRUE) +
+        ggtitle(paste0("WNN Clusters (res ", resolutions[i], ")"))
+    pdf(file.path(plot_dir, "clustering",
+                  paste0(argv$project_prefix, "-umap-wnn-res", resolutions[i], ".pdf")),
+        width = 10, height = 8)
+    print(p)
+    dev.off()
+}
+
+# 20. QC metrics FeaturePlot on WNN UMAP — 3x2 grid, one plot
+message("Generating QC metrics FeaturePlot...")
+qc_features <- c("nCount_RNA", "nFeature_RNA", "percent.mt",
+                  "nCount_ATAC", "TSS.enrichment", "nucleosome_signal")
+p_qc <- FeaturePlot(seu_obj, features = qc_features, reduction = "wnn.umap", ncol = 3)
+pdf(file.path(plot_dir, "qc-metrics",
+              paste0(argv$project_prefix, "-umap-wnn-qc-metrics.pdf")),
+    width = 18, height = 10)
+print(p_qc)
+dev.off()
+message("All UMAP plots saved to: ", plot_dir)
+
+# 21. Save output
 out_path <- paste0("output/RDS-files/", argv$project_prefix, "-07-normalize-reduce-obj.RDS")
 saveRDS(seu_obj, file = out_path)
 message("Step 7 complete. Saved: ", out_path)
