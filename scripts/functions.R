@@ -316,6 +316,177 @@ FootprintMyPeaks <- function(obj, peaks.to.test, motifs.to.test=NULL, peak.genom
 # Build a consensus peak set across all samples, recount each sample, and return
 # an updated seu_obj_list ready to merge. Each object is stripped to RNA + new
 # consensus peaks assay so all samples share the same peak feature space.
+# ── DE Markers ────────────────────────────────────────────────────────────────
+
+# Runs FindAllMarkers (Wilcoxon, positive markers only) and formats output in a
+# Libra-like column structure. Returns a named list with three elements:
+#   Raw-Markers     — all markers pre-filtering (12 cols)
+#   Filtered-Markers — list of per-cluster data frames, columns renamed dynamically
+#   Top-Markers     — pivot table of top N genes per cluster
+custom_all_markers_function <- function(
+  seu_obj,
+  ident_col,
+  assay = "RNA",
+  p_adj_max = 0.05,
+  lfc_min = 0.5,
+  pct_min = 0.1,
+  top_n = 100,
+  background_name = "background"
+) {
+
+  # 1. Set identities
+  Seurat::Idents(seu_obj) <- ident_col
+
+  # 2. If identities are purely numeric-like, rename to cluster_<n> with proper numeric ordering
+  ident_levels <- levels(Seurat::Idents(seu_obj))
+
+  if (all(grepl("^[0-9]+$", ident_levels))) {
+    numeric_levels <- sort(as.numeric(ident_levels))
+    new_levels <- paste0("cluster_", numeric_levels)
+    names(new_levels) <- as.character(numeric_levels)
+
+    Seurat::Idents(seu_obj) <- factor(
+      x = paste0("cluster_", as.character(Seurat::Idents(seu_obj))),
+      levels = paste0("cluster_", numeric_levels)
+    )
+  }
+
+  # 3. Pull normalized data layer for mean-expression columns
+  expr_mat <- SeuratObject::LayerData(
+    object = seu_obj,
+    assay = assay,
+    layer = "data"
+  )
+
+  # 4. Run FindAllMarkers (positive markers only)
+  raw_markers <- Seurat::FindAllMarkers(
+    object = seu_obj,
+    assay = assay,
+    only.pos = TRUE,
+    logfc.threshold = 0,
+    min.pct = 0,
+    test.use = "wilcox"
+  )
+
+  # 5. Ensure gene column exists
+  if (!"gene" %in% colnames(raw_markers)) {
+    raw_markers <- tibble::rownames_to_column(raw_markers, var = "gene")
+  }
+
+  # 6. Rename columns to Libra-like structure
+  raw_markers <- raw_markers %>%
+    dplyr::rename(
+      cell_type = cluster,
+      avg_logFC = avg_log2FC,
+      celltype_pct = pct.1,
+      background_pct = pct.2,
+      p_val_adj_BH = p_val_adj
+    )
+
+  # 7. Preserve proper numeric cluster ordering if applicable
+  raw_cell_types <- unique(as.character(raw_markers$cell_type))
+
+  if (all(grepl("^cluster_[0-9]+$", raw_cell_types))) {
+    ordered_cell_types <- raw_cell_types[order(as.numeric(sub("^cluster_", "", raw_cell_types)))]
+    raw_markers$cell_type <- factor(raw_markers$cell_type, levels = ordered_cell_types)
+  }
+
+  # 8. Compute mean normalized expression for cell type vs all other cells
+  ident_vector <- as.character(Seurat::Idents(seu_obj))
+  all_cells <- colnames(seu_obj)
+  cell_types <- levels(Seurat::Idents(seu_obj))
+
+  mean_exp_list <- lapply(cell_types, function(ct) {
+    ct_cells <- all_cells[ident_vector == ct]
+    bg_cells <- all_cells[ident_vector != ct]
+
+    tibble::tibble(
+      cell_type = ct,
+      gene = rownames(expr_mat),
+      celltype_exp = Matrix::rowMeans(expr_mat[, ct_cells, drop = FALSE]),
+      background_exp = Matrix::rowMeans(expr_mat[, bg_cells, drop = FALSE])
+    )
+  })
+
+  mean_exp_df <- dplyr::bind_rows(mean_exp_list)
+
+  if (all(grepl("^cluster_[0-9]+$", unique(mean_exp_df$cell_type)))) {
+    ordered_cell_types <- unique(as.character(mean_exp_df$cell_type))
+    ordered_cell_types <- ordered_cell_types[order(as.numeric(sub("^cluster_", "", ordered_cell_types)))]
+    mean_exp_df$cell_type <- factor(mean_exp_df$cell_type, levels = ordered_cell_types)
+  }
+
+  # 9. Join mean expression and add metadata / Bonferroni correction
+  raw_markers <- raw_markers %>%
+    dplyr::left_join(mean_exp_df, by = c("cell_type", "gene")) %>%
+    dplyr::group_by(cell_type) %>%
+    dplyr::mutate(
+      p_val_adj_Bonferroni = stats::p.adjust(p_val, method = "bonferroni")
+    ) %>%
+    dplyr::ungroup() %>%
+    dplyr::mutate(
+      de_family = "singlecell",
+      de_method = "wilcox"
+    ) %>%
+    dplyr::select(
+      cell_type,
+      gene,
+      avg_logFC,
+      celltype_pct,
+      background_pct,
+      celltype_exp,
+      background_exp,
+      p_val,
+      p_val_adj_BH,
+      p_val_adj_Bonferroni,
+      de_family,
+      de_method
+    )
+
+  # 10. Filter markers
+  markers_filtered_up <- raw_markers %>%
+    dplyr::filter(
+      p_val_adj_Bonferroni < p_adj_max,
+      avg_logFC > lfc_min,
+      celltype_pct > pct_min
+    )
+
+  # 11. Split filtered markers by cell type and rename pct/exp columns dynamically
+  filtered_list <- split(markers_filtered_up, markers_filtered_up$cell_type)
+
+  filtered_list <- lapply(names(filtered_list), function(ct) {
+    df <- filtered_list[[ct]]
+
+    colnames(df)[colnames(df) == "celltype_pct"]    <- paste0(ct, ".pct")
+    colnames(df)[colnames(df) == "background_pct"]  <- paste0(background_name, ".pct")
+    colnames(df)[colnames(df) == "celltype_exp"]    <- paste0(ct, ".exp")
+    colnames(df)[colnames(df) == "background_exp"]  <- paste0(background_name, ".exp")
+
+    df
+  })
+
+  names(filtered_list) <- names(split(markers_filtered_up, markers_filtered_up$cell_type))
+
+  # 12. Top markers table (pivot: one column per cluster, ranked by p_val_adj_Bonferroni then logFC)
+  top_up_markers <- markers_filtered_up %>%
+    dplyr::group_by(cell_type) %>%
+    dplyr::arrange(p_val_adj_Bonferroni, dplyr::desc(avg_logFC), .by_group = TRUE) %>%
+    dplyr::slice_head(n = top_n) %>%
+    dplyr::mutate(rank = dplyr::row_number()) %>%
+    dplyr::select(cell_type, gene, rank) %>%
+    tidyr::pivot_wider(names_from = cell_type, values_from = gene) %>%
+    head(top_n)
+
+  # 13. Return list
+  list(
+    "Raw-Markers"      = raw_markers,
+    "Filtered-Markers" = filtered_list,
+    "Top-Markers"      = top_up_markers
+  )
+}
+
+# ── Consensus Peaks ───────────────────────────────────────────────────────────
+
 create_consensus_peaks <- function(seu_obj_list, genome) {
     require(Seurat)
     require(Signac)

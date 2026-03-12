@@ -67,9 +67,18 @@ Rscript scripts/07_normalize_reduce.R \
     --harmony_vars    $(Rscript --no-init-file -e "cat(yaml::read_yaml('configs/pipeline_config.yml')[['harmony_vars']])") \
     --RDS_file_in     output/RDS-files/${project_prefix}-06-merge-obj.RDS
 
+# 6. Step 8: Cluster marker detection (runs at all wsnn_res.* resolutions)
+echo "[Step 8/4] Running cluster marker detection..."
+Rscript scripts/08_cluster_markers.R \
+    configs/samplesheet.csv \
+    --pipeline_config configs/pipeline_config.yml \
+    --project_prefix  $project_prefix \
+    --RDS_file_in     output/RDS-files/${project_prefix}-07-normalize-reduce-obj.RDS
+
 echo ""
 echo "filter_merge_reduce complete."
 echo "  Final object: output/RDS-files/${project_prefix}-07-normalize-reduce-obj.RDS"
+echo "  Markers:      output/markers/${project_prefix}-08-markers/"
 echo "  Next steps:"
 echo "    1. Inspect WNN UMAP and clustering"
-echo "    2. Annotate cell types"
+echo "    2. Review cluster markers and annotate cell types"
