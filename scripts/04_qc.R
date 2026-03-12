@@ -85,6 +85,7 @@ seu_obj_list <- readRDS(argv$RDS_file_in)
 #    so count matrices are never needed. Keeps merge fast on large multiome objects.
 message("  Slimming objects with DietSeurat before merge...")
 seu_obj_list_diet <- lapply(seu_obj_list, function(seu_obj) {
+    DefaultAssay(seu_obj) <- "RNA"
     DietSeurat(seu_obj, assays = "RNA")
 })
 seu_obj_merged <- merge(seu_obj_list_diet[[1]], seu_obj_list_diet[-1])
@@ -223,7 +224,43 @@ doublet_csv_path <- paste0("output/tables/", argv$project_prefix, "-doublet-summ
 write.csv(doublet_summary, file = doublet_csv_path, row.names = FALSE)
 message("  Doublet summary saved: ", doublet_csv_path)
 
-# 12. Write qc_config.yml with default thresholds for each sample
+# 12. QC summary CSV: cells removed per criterion per sample
+#     Each row = one sample. Each metric column = cells failing that threshold.
+#     doublets = scDblFinder predicted doublets. total_removed = union of all fails.
+qc_summary <- bind_rows(lapply(names(seu_obj_list), function(sample_name) {
+    meta    <- seu_obj_list[[sample_name]]@meta.data
+    n_total <- nrow(meta)
+
+    # Build per-metric fail flags using same cutoffs as violin plots
+    fail_flags <- lapply(names(qc_cutoffs), function(metric) {
+        cut     <- qc_cutoffs[[metric]]
+        has_min <- !is.na(cut["min"])
+        has_max <- !is.na(cut["max"])
+        fail    <- rep(FALSE, n_total)
+        if (has_min) fail <- fail | (meta[[metric]] < cut["min"])
+        if (has_max) fail <- fail | (meta[[metric]] > cut["max"])
+        fail
+    })
+    names(fail_flags) <- names(qc_cutoffs)
+
+    # Doublets as a separate flag
+    fail_flags[["doublets"]] <- meta$scDblFinder.class == "doublet"
+
+    # Total removed = union across all flags (cells failing >= 1 criterion)
+    any_fail <- Reduce("|", fail_flags)
+
+    row <- data.frame(sample = sample_name, total_cells = n_total)
+    for (nm in names(fail_flags)) row[[nm]] <- sum(fail_flags[[nm]])
+    row[["total_removed"]]   <- sum(any_fail)
+    row[["total_retained"]]  <- n_total - sum(any_fail)
+    row
+}))
+
+qc_summary_path <- paste0("output/tables/", argv$project_prefix, "-qc-summary.csv")
+write.csv(qc_summary, file = qc_summary_path, row.names = FALSE)
+message("  QC summary saved: ", qc_summary_path)
+
+# 13. Write qc_config.yml with default thresholds for each sample
 #     Review the plots above, then edit configs/qc_config.yml before running 05_filter.R
 #     Note: remove_doublets defaults to FALSE — set to TRUE to remove predicted doublets
 create_qc_yaml_file(seu_obj_list)

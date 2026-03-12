@@ -44,29 +44,31 @@ filter_seu_list_by_qc <- function(seu_obj_list, qc_configs) {
     remove_doublets <- isTRUE(qc_configs$remove_doublets)
 
     # 2. Apply per-sample QC filters to each object
-    lapply(names(seu_obj_list), function(sample) {
-        seu_obj <- seu_obj_list[[sample]]
-        filters <- qc_configs[[sample]]$filters
+    setNames(lapply(names(seu_obj_list), function(sample) {
+        seu_obj  <- seu_obj_list[[sample]]
+        filters  <- qc_configs[[sample]]$filters
+        n_before <- ncol(seu_obj)
 
         # Apply cell-level QC thresholds
         seu_obj <- subset(seu_obj, subset =
-            nFeature_RNA      > filters$nFeature_RNA_min    &
-            nFeature_RNA      < filters$nFeature_RNA_max    &
-            nFeature_peaks    > filters$nFeature_peaks_min  &
-            nFeature_peaks    < filters$nFeature_peaks_max  &
-            percent.mt        < filters$percent.mt           &
-            nucleosome_signal < filters$nucleosome_signal    &
-            nCount_peaks      < filters$nCount_peaks         &
-            TSS.enrichment    > filters$TSS.enrichment_min
+            nFeature_RNA      >= filters$nFeature_RNA_min    &
+            nFeature_RNA      <  filters$nFeature_RNA_max    &
+            nFeature_peaks    >= filters$nFeature_peaks_min  &
+            nFeature_peaks    <  filters$nFeature_peaks_max  &
+            percent.mt        <  filters$percent.mt           &
+            nucleosome_signal <  filters$nucleosome_signal    &
+            nCount_peaks      <  filters$nCount_peaks         &
+            TSS.enrichment    >= filters$TSS.enrichment_min
         )
 
         # Optionally remove predicted doublets (scDblFinder.class == "doublet")
         if (remove_doublets) {
-            n_before <- ncol(seu_obj)
-            seu_obj  <- subset(seu_obj, scDblFinder.class == "singlet")
-            message("  ", sample, ": removed ", n_before - ncol(seu_obj), " doublets")
+            n_before_doublet <- ncol(seu_obj)
+            seu_obj          <- subset(seu_obj, scDblFinder.class == "singlet")
+            message("  ", sample, ": removed ", n_before_doublet - ncol(seu_obj), " doublets")
         }
 
+        message("  ", sample, ": ", n_before, " -> ", ncol(seu_obj), " cells retained")
         return(seu_obj)
-    })
+    }), names(seu_obj_list))
 }

@@ -312,3 +312,56 @@ FootprintMyPeaks <- function(obj, peaks.to.test, motifs.to.test=NULL, peak.genom
   )
   return(obj)
 }
+
+# Build a consensus peak set across all samples, recount each sample, and return
+# an updated seu_obj_list ready to merge. Each object is stripped to RNA + new
+# consensus peaks assay so all samples share the same peak feature space.
+create_consensus_peaks <- function(seu_obj_list, genome) {
+    require(Seurat)
+    require(Signac)
+    require(GenomicRanges)
+
+    # 1. Extract peak GRanges from each sample
+    message("  Extracting peak ranges per sample...")
+    peak_list <- lapply(seu_obj_list, function(seu_obj) {
+        DefaultAssay(seu_obj) <- "peaks"
+        granges(seu_obj[["peaks"]])
+    })
+
+    # 2. Build consensus peak set: union, width filter, standard chroms only
+    message("  Building consensus peak set...")
+    combined_peaks <- reduce(unlist(GRangesList(peak_list)))
+    peak_widths    <- width(combined_peaks)
+    combined_peaks <- combined_peaks[peak_widths > 20 & peak_widths < 10000]
+    combined_peaks <- keepStandardChromosomes(combined_peaks, pruning.mode = "coarse")
+    message("  Consensus peaks after filtering: ", length(combined_peaks))
+
+    # 3. Per sample: recount with consensus peaks and rebuild peaks assay
+    setNames(lapply(names(seu_obj_list), function(sample) {
+        seu_obj <- seu_obj_list[[sample]]
+        message("  Recounting consensus peaks for: ", sample)
+
+        # Get fragment path and create fragment object scoped to filtered cells
+        DefaultAssay(seu_obj) <- "peaks"
+        frag_path <- seu_obj[["peaks"]]@fragments[[1]]@path
+        frag_obj  <- CreateFragmentObject(path = frag_path, cells = colnames(seu_obj))
+
+        # Recount cells against consensus peaks
+        feat_matrix <- FeatureMatrix(
+            fragments = frag_obj,
+            features  = combined_peaks,
+            cells     = colnames(seu_obj)
+        )
+
+        # Strip all assays except RNA, then add new consensus peaks assay
+        DefaultAssay(seu_obj) <- "RNA"
+        seu_obj <- DietSeurat(seu_obj, assays = "RNA")
+        seu_obj[["peaks"]] <- CreateChromatinAssay(
+            counts     = feat_matrix,
+            fragments  = frag_obj,
+            annotation = genome$annotation
+        )
+
+        return(seu_obj)
+    }), names(seu_obj_list))
+}
