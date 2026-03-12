@@ -21,7 +21,7 @@ renv/sandbox/
 .renv_platform
 
 # Output data (too large for git)
-output/RDS-files/
+output/
 data/raw/
 data/scenicplus/
 
