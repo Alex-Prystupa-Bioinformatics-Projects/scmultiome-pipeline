@@ -108,6 +108,10 @@ for (res_col in res_cols) {
     res_label <- sub("^wsnn_res\\.", "res", res_col)
     message("\n--- Resolution: ", res_col, " (", res_label, ") ---")
 
+    # Set proper numeric cluster ordering once — used by both markers and plots
+    cluster_levels <- as.character(sort(as.numeric(unique(as.character(seu_obj@meta.data[[res_col]])))))
+    seu_obj@meta.data[[res_col]] <- factor(seu_obj@meta.data[[res_col]], levels = cluster_levels)
+
     res_dir <- file.path(markers_dir, res_label)
     dir.create(res_dir, showWarnings = FALSE)
 
@@ -151,41 +155,41 @@ for (res_col in res_cols) {
 
     # Extract top genes from Top-Markers (already sorted + filtered)
     top_genes_dot <- markers[["Top-Markers"]] %>%
-        head(5) %>%
+        head(4) %>%
         dplyr::select(-rank) %>%
         unlist() %>% na.omit() %>% unique() %>% as.character()
 
     top_genes_heat <- markers[["Top-Markers"]] %>%
-        head(10) %>%
+        head(8) %>%
         dplyr::select(-rank) %>%
         unlist() %>% na.omit() %>% unique() %>% as.character()
 
-    n_clusters <- length(unique(seu_obj@meta.data[[res_col]]))
+    n_clusters <- length(cluster_levels)
+    Idents(seu_obj) <- seu_obj@meta.data[[res_col]]
 
-    # DotPlot — top 5 markers per cluster
+    # DotPlot — top 4 markers per cluster
     if (length(top_genes_dot) > 0) {
         DefaultAssay(seu_obj) <- "RNA"
-        p <- DotPlot(seu_obj, features = top_genes_dot, group.by = res_col) +
+        p <- DotPlot(seu_obj, features = top_genes_dot) +
             theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
-            ggtitle(paste0("Top 5 Markers per Cluster (", res_label, ")"))
+            ggtitle(paste0("Top 4 Markers per Cluster (", res_label, ")"))
         pdf(file.path(annotation_dir, "dotplot",
                       paste0(argv$project_prefix, "-", res_label, "-dotplot.pdf")),
             width  = max(8, length(top_genes_dot) * 0.5),
-            height = max(4, n_clusters * 0.4))
+            height = max(6, n_clusters * 0.6))
         print(p)
         dev.off()
         message("  Saved dotplot: ", res_label)
     }
 
-    # DoHeatmap — top 10 markers per cluster
+    # DoHeatmap — top 8 markers per cluster
     if (length(top_genes_heat) > 0) {
         DefaultAssay(seu_obj) <- "RNA"
-        Idents(seu_obj) <- res_col
-        p <- DoHeatmap(seu_obj, features = top_genes_heat, group.by = res_col) +
-            ggtitle(paste0("Top 10 Markers per Cluster (", res_label, ")"))
+        p <- DoHeatmap(seu_obj, features = top_genes_heat) +
+            ggtitle(paste0("Top 8 Markers per Cluster (", res_label, ")"))
         pdf(file.path(annotation_dir, "heatmap",
                       paste0(argv$project_prefix, "-", res_label, "-heatmap.pdf")),
-            width  = 14,
+            width  = max(18, n_clusters * 1.0),
             height = max(6, length(top_genes_heat) * 0.4))
         print(p)
         dev.off()
