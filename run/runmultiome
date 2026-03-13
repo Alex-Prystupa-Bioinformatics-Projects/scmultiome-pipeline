@@ -9,9 +9,10 @@
 #   bash run/runmultiome <function_name>
 #
 # Available functions:
-#   init               — set up directory structure for a new project
-#   preprocess         — run steps 1-4 (init → create → callpeaks → qc)
-#   filter_merge_reduce  — run steps 5-7 (filter → merge → normalize/reduce)
+#   init                   — set up directory structure for a new project
+#   preprocess             — run steps 1-4 (init → create → callpeaks → qc)
+#   filter_merge_reduce    — run steps 5-8 (filter → merge → normalize/reduce → markers)
+#   annotate_recall_peaks  — run step 9 (annotate cell types)
 #
 # Example:
 #   bash run/runmultiome preprocess
@@ -116,11 +117,21 @@ filter_merge_reduce() {
         12:00 16000 8
 }
 
+# Phase 3: annotate cell types (step 9)
+# Time: 12hrs | Mem: 16GB/core | Cores: 8
+annotate_recall_peaks() {
+    echo "Submitting annotation pipeline (step 9)"
+    submit_job routes/03_annotate_recall_peaks.sh \
+        scripts/outs/annotate-recall-peaks-%J.out \
+        scripts/outs/annotate-recall-peaks-%J.err \
+        12:00 16000 8
+}
+
 # Dispatcher — calls the named function passed as argument
 run_multiome() {
     if [ $# -eq 0 ]; then
         echo "Please provide a function name to run."
-        echo "Available: init, preprocess, filter_merge_reduce"
+        echo "Available: init, preprocess, filter_merge_reduce, annotate_recall_peaks"
         exit 1
     fi
     "$1"

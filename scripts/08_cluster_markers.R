@@ -197,7 +197,23 @@ for (res_col in res_cols) {
     }
 }
 
-# 8. Summary
+# 8. Write annotation template to configs/annotations.csv
+write.csv(
+    data.frame(`wsnn_res_(fill_in_res_to_use)` = character(),
+               Annotation_Broad                = character(),
+               Annotation_Narrow               = character(),
+               check.names = FALSE),
+    file      = "configs/annotations.csv",
+    row.names = FALSE
+)
+message("\nWrote configs/annotations.csv")
+message("  1. Rename the first column to your chosen resolution (e.g. wsnn_res.0.4)")
+message("  2. Fill in cluster annotations — any cluster labelled 'Discard' will be removed in step 9")
+message("  3. Run: Rscript scripts/09_annotate.R configs/samplesheet.csv \\")
+message("          --project_prefix ", argv$project_prefix, " \\")
+message("          --RDS_file_in output/RDS-files/", argv$project_prefix, "-07-normalize-reduce-obj.RDS \\")
+
+# 9. Summary
 message("\nStep 8 complete.")
 message("  Resolutions processed: ", paste(res_cols, collapse = ", "))
 message("  Outputs written to:    ", markers_dir)
