@@ -67,9 +67,27 @@ Rscript scripts/07_normalize_reduce.R \
     --harmony_vars    $(Rscript --no-init-file -e "cat(yaml::read_yaml('configs/pipeline_config.yml')[['harmony_vars']])") \
     --RDS_file_in     output/RDS-files/${project_prefix}-06-merge-obj.RDS
 
+# 6. Step 8: Cluster marker detection (runs at all wsnn_res.* resolutions)
+echo "[Step 8/4] Running cluster marker detection..."
+Rscript scripts/08_cluster_markers.R \
+    configs/samplesheet.csv \
+    --pipeline_config configs/pipeline_config.yml \
+    --project_prefix  $project_prefix \
+    --RDS_file_in     output/RDS-files/${project_prefix}-07-normalize-reduce-obj.RDS
+
+# 7. Build clustering PPTX report
+echo "[Report] Building clustering PPTX report..."
+module load poppler/22.07.0 libtiff/3.9.7
+uv run python scripts/build_pptx_report.py \
+    --report         clustering \
+    --project_prefix $project_prefix \
+    --samplesheet    configs/samplesheet.csv
+
 echo ""
 echo "filter_merge_reduce complete."
 echo "  Final object: output/RDS-files/${project_prefix}-07-normalize-reduce-obj.RDS"
+echo "  Markers:      output/markers/${project_prefix}-08-markers/"
+echo "  Report:       output/reports/${project_prefix}-clustering-report.pptx"
 echo "  Next steps:"
-echo "    1. Inspect WNN UMAP and clustering"
+echo "    1. Review clustering report PPTX"
 echo "    2. Annotate cell types"

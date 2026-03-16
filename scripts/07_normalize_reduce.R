@@ -31,6 +31,7 @@ library(Signac,     quietly = TRUE)
 library(harmony,    quietly = TRUE)
 library(ggplot2,    quietly = TRUE)
 library(patchwork,  quietly = TRUE)
+library(clustree,   quietly = TRUE)
 
 # 1. Parse arguments
 p <- arg_parser("Step 7: Dimensionality reduction and clustering")
@@ -250,7 +251,16 @@ for (i in seq_along(resolutions)) {
     dev.off()
 }
 
-# 20. QC metrics FeaturePlot on WNN UMAP — 3x2 grid, one plot
+# 20. Clustree — shows how cells redistribute as resolution increases
+message("Generating clustree...")
+p <- clustree::clustree(seu_obj@meta.data, prefix = "wsnn_res.")
+pdf(file.path(plot_dir, "clustering",
+              paste0(argv$project_prefix, "-clustree.pdf")),
+    width = 10, height = 12)
+print(p)
+dev.off()
+
+# 21. QC metrics FeaturePlot on WNN UMAP — 3x2 grid, one plot
 message("Generating QC metrics FeaturePlot...")
 qc_features <- c("nCount_RNA", "nFeature_RNA", "percent.mt",
                   "nCount_ATAC", "TSS.enrichment", "nucleosome_signal")
@@ -262,7 +272,7 @@ print(p_qc)
 dev.off()
 message("All UMAP plots saved to: ", plot_dir)
 
-# 21. Save output
+# 22. Save output
 out_path <- paste0("output/RDS-files/", argv$project_prefix, "-07-normalize-reduce-obj.RDS")
 saveRDS(seu_obj, file = out_path)
 message("Step 7 complete. Saved: ", out_path)
