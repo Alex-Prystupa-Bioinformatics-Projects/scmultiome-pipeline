@@ -1,11 +1,13 @@
 #!/bin/bash
 # =============================================================================
-# 03_annotate_recall_peaks.sh  |  Phase 3: Annotate Cell Types
+# 03_annotate_recall_peaks.sh  |  Phase 3: Annotate + Recall Peaks
 # =============================================================================
-# Runs step 9 (annotate) — applies user-defined cell type annotations from
-# configs/annotations.csv onto the Seurat object and removes Discard cells.
+# Runs step 9 (annotate) then step 10 (cell-type-aware peak recall).
 #
-# Note: recall_peaks logic will be added to this route in a future step.
+# Step 9: applies user-defined cell type annotations from configs/annotations.csv
+#         onto the Seurat object and removes Discard cells.
+# Step 10: splits the annotated object by sample × cell type, recalls MACS2
+#          peaks per group, builds a consensus peak set, and re-merges.
 #
 # Prerequisites:
 #   1. Run routes/02_filter_merge_reduce.sh
@@ -40,6 +42,16 @@ Rscript scripts/09_annotate.R \
     --RDS_file_in     output/RDS-files/${project_prefix}-07-normalize-reduce-obj.RDS \
     --annotation_file configs/annotations.csv
 
+# 4. Step 10: Cell-type-aware peak recall
+echo "[Step 10] Recalling peaks per sample × cell type..."
+Rscript scripts/10_recall_peaks.R \
+    configs/samplesheet.csv \
+    --project_prefix  $project_prefix \
+    --RDS_file_in     output/RDS-files/${project_prefix}-09-annotate-obj.RDS \
+    --annotation_file configs/annotations.csv \
+    --macs2_path      $my_macs_path
+
 echo ""
 echo "annotate_recall_peaks complete."
-echo "  Annotated object: output/RDS-files/${project_prefix}-09-annotate-obj.RDS"
+echo "  Annotated object:      output/RDS-files/${project_prefix}-09-annotate-obj.RDS"
+echo "  Recall-peaks object:   output/RDS-files/${project_prefix}-10-recall-peaks-obj.RDS"
