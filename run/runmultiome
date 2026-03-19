@@ -12,7 +12,8 @@
 #   init                   — set up directory structure for a new project
 #   preprocess             — run steps 1-4 (init → create → callpeaks → qc)
 #   filter_merge_reduce    — run steps 5-8 (filter → merge → normalize/reduce → markers)
-#   annotate_recall_peaks  — run step 9 (annotate cell types)
+#   annotate_recall_peaks  — run steps 9-10 (annotate cell types → recall peaks)
+#   linkpeaks              — run step 11 (per-group parallel LinkPeaks)
 #
 # Example:
 #   bash run/runmultiome preprocess
@@ -117,21 +118,34 @@ filter_merge_reduce() {
         12:00 16000 8
 }
 
-# Phase 3: annotate cell types (step 9)
+# Phase 3: annotate cell types + recall peaks (steps 9-10)
 # Time: 12hrs | Mem: 16GB/core | Cores: 8
 annotate_recall_peaks() {
-    echo "Submitting annotation pipeline (step 9)"
+    echo "Submitting annotation + recall peaks pipeline (steps 9-10)"
     submit_job routes/03_annotate_recall_peaks.sh \
         scripts/outs/annotate-recall-peaks-%J.out \
         scripts/outs/annotate-recall-peaks-%J.err \
         12:00 16000 8
 }
 
+# Phase 4: per-group parallel LinkPeaks (step 11)
+# Orchestrator job is lightweight (2hrs, 4 cores) — it splits the object,
+# then submits one child LSF job per group (each 36hrs, 16 cores, 64GB).
+# Set linkpeaks_grouping_col in configs/pipeline_config.yml before running.
+linkpeaks() {
+    echo "Submitting LinkPeaks orchestrator (step 11)"
+    echo "  Grouping column: see configs/pipeline_config.yml -> linkpeaks_grouping_col"
+    submit_job routes/04_linkpeaks.sh \
+        scripts/outs/linkpeaks-%J.out \
+        scripts/outs/linkpeaks-%J.err \
+        2:00 32000 4
+}
+
 # Dispatcher — calls the named function passed as argument
 run_multiome() {
     if [ $# -eq 0 ]; then
         echo "Please provide a function name to run."
-        echo "Available: init, preprocess, filter_merge_reduce, annotate_recall_peaks"
+        echo "Available: init, preprocess, filter_merge_reduce, annotate_recall_peaks, linkpeaks"
         exit 1
     fi
     "$1"
