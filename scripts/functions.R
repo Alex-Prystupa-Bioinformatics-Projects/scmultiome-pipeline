@@ -170,7 +170,7 @@ ConstructWNNGraph <- function(seu, harmony = FALSE, resolution = 0.8, rna.pcs=30
 }
 
 # links peaks to genes to determine if there is a link between accessibility and expression
-LinkMyPeaks <- function(seu, genes = NULL, peak.genome,distance.to.use=1000000){
+LinkMyPeaks <- function(seu, genes = NULL, peak.genome, distance.to.use = 250001){
     require(Seurat)
     require(Signac)
   DefaultAssay(seu) <- "peaks"
