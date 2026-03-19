@@ -32,9 +32,9 @@ library(Seurat,    quietly = TRUE)
 # Hardcoded LSF job settings
 LSF_QUEUE <- "premium"
 LSF_PROJ  <- "acc_naiklab"
-LSF_CORES <- 16
-LSF_MEM   <- 64000
-LSF_TIME  <- "36:00"
+LSF_CORES <- 8
+LSF_MEM   <- 8000
+LSF_TIME  <- "24:00"
 DISTANCE  <- 250001
 
 # -----------------------------------------------------------------------------
