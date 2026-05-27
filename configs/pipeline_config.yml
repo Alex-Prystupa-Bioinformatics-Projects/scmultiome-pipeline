@@ -33,3 +33,20 @@ blacklist: blacklist_mm10
 # IMPORTANT: Review your QC plots and sample metadata before deciding.
 # If your samples come from multiple institutions or sequencing runs, batch correction is recommended.
 harmony_vars: none
+
+# -----------------------------------------------
+# LinkPeaks (Step 11: linkpeaks)
+# -----------------------------------------------
+# linkpeaks_grouping_col: metadata column to split the object by before running
+# LinkPeaks. One LSF job is submitted per unique value in this column.
+# Set to "none" to run LinkPeaks on the full merged object (one job).
+# Common choices:
+#   none                → full object, one job
+#   orig.ident          → one job per sample
+#   Annotation_Broad    → one job per cell type
+#   Sample_Celltype     → one job per sample × cell type combination
+linkpeaks_grouping_col: none
+# linkpeaks_genes: whether to run LinkPeaks on all genes or SCT variable features only.
+# variable_features is much faster and recommended for testing.
+# Options: "all", "variable_features"
+linkpeaks_genes: all

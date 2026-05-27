@@ -14,6 +14,7 @@ The pipeline is organized into three phases, each submitted as a single HPC job 
 | 1 | `preprocess` | 1–4 | Init → Create objects → Call peaks → QC |
 | 2 | `filter_merge_reduce` | 5–8 | Filter → Merge → Normalize/Reduce → Cluster markers |
 | 3 | `annotate_recall_peaks` | 9–10 | Annotate cell types → Recall peaks per cell type |
+| 4 | `linkpeaks` | 11 | Link peaks to genes in parallel per group → merge results |
 
 **User checkpoints are required between each phase** — see the walkthrough below.
 
@@ -33,6 +34,7 @@ The pipeline is organized into three phases, each submitted as a single HPC job 
 | 8 | `scripts/08_cluster_markers.R` | Differential expression per cluster via Libra, saves marker tables and annotation plots |
 | 9 | `scripts/09_annotate.R` | Left-join cell type labels from `configs/annotations.csv`, remove Discard cells |
 | 10 | `scripts/10_recall_peaks.R` | Split by sample × cell type, recall MACS2 peaks per group, build consensus, re-merge |
+| 11 | `scripts/11_linkpeaks.R` | Split object by grouping column, submit one LSF job per group to run `LinkPeaks()` in parallel, then submit a merge job to reassemble results onto the full object |
 
 ---
 
@@ -163,6 +165,37 @@ Step 10 splits the object by sample × cell type, re-runs MACS2 per group, and b
 
 ---
 
+### Phase 4 — Link Peaks to Genes (Step 11)
+
+```bash
+bash run/runmultiome linkpeaks
+```
+
+Splits the step-10 object by `linkpeaks_grouping_col`, submits one LSF job per group to run Signac `LinkPeaks()` in parallel, then automatically submits a merge job (with LSF dependency) that reassembles all per-group links back onto the full object.
+
+**Before running — configure in `configs/pipeline_config.yml`:**
+```yaml
+# Split strategy — one LSF job per unique value in this column
+linkpeaks_grouping_col: Annotation_Broad   # or: none, orig.ident, Sample_Celltype
+
+# Gene set for LinkPeaks
+linkpeaks_genes: all                       # or: variable_features (faster, good for testing)
+```
+
+**Job structure:**
+- Orchestrator job (lightweight): splits object, submits N child jobs + 1 merge job
+- Child jobs (16 cores, 64GB, 36hr each): one per group, saves `output/RDS/linkpeaks/{group}-linkpeaks.RDS`
+- Merge job (8 cores, 64GB, 6hr): fires automatically via `#BSUB -w "done(linkpeaks_*)"` — extracts links from all groups, combines into a single GRanges, and assigns back onto the full object
+
+**Monitor:**
+```bash
+bjobs -J 'linkpeaks_*'
+```
+
+**Output:** `output/RDS-files/{prefix}-11-linkpeaks-obj.RDS`
+
+---
+
 ## RDS Checkpoints
 
 Each step saves a checkpoint to `output/RDS-files/`. Naming convention:
@@ -181,6 +214,7 @@ Each step saves a checkpoint to `output/RDS-files/`. Naming convention:
 | `{prefix}-08-markers-obj.RDS` | Same as step 7 with cluster marker metadata |
 | `{prefix}-09-annotate-obj.RDS` | Annotated object, Discard cells removed |
 | `{prefix}-10-recall-peaks-obj.RDS` | Annotated object with cell-type-boosted peaks assay |
+| `{prefix}-11-linkpeaks-obj.RDS` | Full object with peak-gene links from all groups combined |
 
 ---
 
@@ -197,17 +231,25 @@ scmultiome-pipeline/
 │   ├── 01_init.R              # step scripts
 │   ├── ...
 │   ├── 10_recall_peaks.R
+│   ├── 11_linkpeaks.R         # linkpeaks orchestrator — splits object, submits child + merge jobs
 │   ├── functions.R            # core function library
 │   ├── genome_utils.R         # species-agnostic genome loader
-│   └── utils.R                # QC yaml writer + filter helpers
+│   ├── utils.R                # QC yaml writer + filter helpers
+│   └── helpers/
+│       ├── run_linkpeaks_worker.R  # per-group LSF worker — runs LinkPeaks on one group
+│       ├── merge_linkpeaks.R       # merge job — combines per-group links onto full object
+│       └── job_merge.sh            # static LSF job script for merge (depends on linkpeaks_*)
 ├── routes/
-│   ├── 01_preprocess.sh       # chains steps 1–4
+│   ├── 01_preprocess.sh           # chains steps 1–4
 │   ├── 02_filter_merge_reduce.sh  # chains steps 5–8
-│   └── 03_annotate_recall_peaks.sh  # chains steps 9–10
+│   ├── 03_annotate_recall_peaks.sh  # chains steps 9–10
+│   └── 04_linkpeaks.sh            # step 11 orchestration
 ├── run/
 │   └── runmultiome            # HPC job submission entry point
 ├── output/
 │   ├── RDS-files/             # Seurat object checkpoints
+│   ├── RDS/
+│   │   └── linkpeaks/         # per-group linkpeaks objects (step 11 intermediates)
 │   ├── plots/                 # QC and UMAP plots
 │   ├── tables/                # QC and doublet summary tables
 │   ├── markers/               # cluster marker outputs (step 8)
