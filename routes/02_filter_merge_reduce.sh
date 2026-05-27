@@ -78,7 +78,7 @@ Rscript scripts/08_cluster_markers.R \
 # 7. Build clustering PPTX report
 echo "[Report] Building clustering PPTX report..."
 module load poppler/22.07.0 libtiff/3.9.7
-uv run python scripts/build_pptx_report.py \
+PYTHONPATH="" .venv/bin/python scripts/build_pptx_report.py \
     --report         clustering \
     --project_prefix $project_prefix \
     --samplesheet    configs/samplesheet.csv
