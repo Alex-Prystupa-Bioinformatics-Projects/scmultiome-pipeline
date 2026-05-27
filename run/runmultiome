@@ -75,6 +75,7 @@ init() {
     # (login and compute nodes may run different OS minor versions on Minerva).
     echo "Restoring R environment via renv (this may take a few minutes)..."
     module load R/4.4.1
+    module load glpk/4.55
     Rscript -e "renv::install('renv'); renv::restore()" && \
         Rscript --no-init-file -e "cat(renv:::renv_platform_prefix())" > .renv_platform
     echo "R environment restored."
