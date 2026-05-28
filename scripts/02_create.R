@@ -98,8 +98,10 @@ seu_obj_list <- lapply(samples, function(sample) {
     # Results are pulled back onto the Seurat object as metadata
     sce     <- as.SingleCellExperiment(seu_obj)
     sce     <- scDblFinder(sce)
-    seu_obj$scDblFinder.score <- sce$scDblFinder.score
-    seu_obj$scDblFinder.class <- sce$scDblFinder.class
+    seu_obj$scDblFinder.score            <- sce$scDblFinder.score
+    seu_obj$scDblFinder.class            <- sce$scDblFinder.class
+    seu_obj$scDblFinder.mostLikelyOrigin <- sce$scDblFinder.mostLikelyOrigin
+    seu_obj$scDblFinder.originAmbiguous  <- sce$scDblFinder.originAmbiguous
 
     n_doublets <- sum(seu_obj$scDblFinder.class == "doublet")
     message("  Done: ", sample,
