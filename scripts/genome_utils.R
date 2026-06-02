@@ -15,7 +15,7 @@ load_genome <- function(pipeline_config) {
 
         peak.genome <- BSgenome.Mmusculus.UCSC.mm10::BSgenome.Mmusculus.UCSC.mm10
         blacklist   <- Signac::blacklist_mm10
-        seqlevelsStyle(blacklist) <- "NCBI"
+        seqlevelsStyle(blacklist) <- "UCSC"
 
         mt_pattern  <- "^mt-"
 
