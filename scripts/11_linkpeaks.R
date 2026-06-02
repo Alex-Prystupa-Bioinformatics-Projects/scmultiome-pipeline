@@ -177,7 +177,7 @@ for (grp in names(seu_obj_list)) {
 # -----------------------------------------------------------------------------
 # 8. Submit merge job — pre-written script, depends on done(linkpeaks_*)
 # -----------------------------------------------------------------------------
-system(paste0('bsub -env "RDS_FILE_IN=', argv$RDS_file_in, '" < scripts/helpers/job_merge.sh'))
+system(paste0('bsub -env "all,RDS_FILE_IN=', argv$RDS_file_in, '" < scripts/helpers/job_merge.sh'))
 message("  Submitted: linkpeaks_merge (waits on all linkpeaks_* jobs)")
 
 # -----------------------------------------------------------------------------

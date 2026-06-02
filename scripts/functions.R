@@ -51,8 +51,8 @@ CallMyPeaks <- function(seu, fragpath=NULL, grouping.var=NULL, my.macs2.path=NUL
     atac.assay <- ifelse("ATAC" %in% names(seu@assays), "ATAC", "peaks")
     DefaultAssay(seu) <- atac.assay
 
-    # Set blacklist seqlevels style to match peak calls (NCBI format)
-    seqlevelsStyle(my.blacklist) <- "NCBI"
+    # Set blacklist seqlevels style to match peak calls (UCSC format, e.g. "chr1")
+    seqlevelsStyle(my.blacklist) <- "UCSC"
 
     # New Code Below, was failing when grouping.var was NA
     if (!is.null(grouping.var)) {
